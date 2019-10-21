@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react';
 
-const Footer = () => {
+const SignUp = () => {
 	return (
   <div>
 
@@ -9,7 +9,7 @@ const Footer = () => {
   );
 };
 
-// class Footer extends React.Component {
+// class SignUp extends React.Component {
 //   render(
 //     return (
 //     <div>
@@ -19,4 +19,4 @@ const Footer = () => {
 //   );
 // };
 
-export default Footer;
+export default SignUp;

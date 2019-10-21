@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react';
 
-const Footer = () => {
+const PotluckCard = () => {
 	return (
   <div>
 
@@ -9,7 +9,7 @@ const Footer = () => {
   );
 };
 
-// class Footer extends React.Component {
+// class PotluckCard extends React.Component {
 //   render(
 //     return (
 //     <div>
@@ -19,4 +19,4 @@ const Footer = () => {
 //   );
 // };
 
-export default Footer;
+export default PotluckCard;
