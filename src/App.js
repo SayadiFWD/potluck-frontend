@@ -1,6 +1,6 @@
 //Libraries
 import React from 'react';
-import './App.css';
+import './styles/styles.scss';
 
 //Components
 // import CreatePotluck from './component/createpotluckform/CreatePotluck';
@@ -9,15 +9,14 @@ import './App.css';
 // import Footer from './component/Footer';
 // import Login from './component/Login';
 // import SignUp from './component/SignUp';
-// import Navigation from './component/Navigation';
+import Header from './component/Header';
 
 function App() {
   return (
     <div className="App">
-    <p>Test</p>
-    {/* Created These To Test If It Renders */}
-    {/* <Navigation/>
-    <Login/>
+    
+    <Header/>
+    {/* <Login/>
     <SignUp/>
     <Dash/>
     <CreatePotluck/>
