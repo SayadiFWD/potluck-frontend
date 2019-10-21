@@ -10,18 +10,15 @@ import './styles/styles.scss';
 // import Login from './component/Login';
 // import SignUp from './component/SignUp';
 import Header from './component/Header';
+import Footer from './component/Footer';
+import SignUp from './component/SignUp';
 
 function App() {
   return (
-    <div className="App">
-    
+    <div className="App">  
     <Header/>
-    {/* <Login/>
-    <SignUp/>
-    <Dash/>
-    <CreatePotluck/>
-    <EventPage/>
-    <Footer/> */}
+    <SignUp />
+    <Footer />
     </div>
   );
 }
