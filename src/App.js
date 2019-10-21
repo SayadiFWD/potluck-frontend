@@ -1,24 +1,28 @@
+//Libraries
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+//Components
+// import CreatePotluck from './component/createpotluckform/CreatePotluck';
+// import Dash from './component/dashboard/Dash';
+// import EventPage from './component/events/EventPage';
+// import Footer from './component/Footer';
+// import Login from './component/Login';
+// import SignUp from './component/SignUp';
+// import Navigation from './component/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <p>Test</p>
+    {/* Created These To Test If It Renders */}
+    {/* <Navigation/>
+    <Login/>
+    <SignUp/>
+    <Dash/>
+    <CreatePotluck/>
+    <EventPage/>
+    <Footer/> */}
     </div>
   );
 }
