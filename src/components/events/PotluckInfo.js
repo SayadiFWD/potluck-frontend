@@ -1,13 +1,12 @@
 // Libraries
-import React from 'react';
+import React from "react";
 
-const PotluckInfo = () => {
+const PotluckInfo = props => {
 	return (
-  <div>
+		<div>
 
-  </div>
-  );
+		</div>
+	);
 };
-
 
 export default PotluckInfo;

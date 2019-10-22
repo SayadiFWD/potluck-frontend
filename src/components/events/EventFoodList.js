@@ -1,10 +1,12 @@
 // Libraries
 import React from 'react';
 
-const EventFoodList = () => {
+const EventFoodList = props => {
 	return (
   <div>
-
+			{props.map((foodItem, index) => (
+				<FoodItem key={index} foodItem={foodItem} />
+			))}
   </div>
   );
 };
