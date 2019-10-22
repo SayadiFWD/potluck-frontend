@@ -1,19 +1,15 @@
 // Libraries
-import React from 'react';
+import React from "react";
 
 const GeneralInfo = () => {
-	return (
-  <div>
-
-  </div>
-  );
+  return <div></div>;
 };
 
 // class GeneralInfo extends React.Component {
 //   render(
 //     return (
 //     <div>
-      
+
 //     </div>
 //     );
 //   );

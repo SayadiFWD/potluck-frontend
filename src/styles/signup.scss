@@ -1,0 +1,13 @@
+.tabs {
+  width: 25%;
+  margin: 0 auto;
+  padding-top: 30px;
+  
+    li {
+    font-size: 1.5rem;
+  }
+}
+
+.tabs.is-centered ul {
+  justify-content: space-between; 
+}

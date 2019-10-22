@@ -1,0 +1,27 @@
+header {
+  background-color: $yellow;
+  border-bottom: 1px solid $light-grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px 10px 40px;
+  align-items: flex-end;
+
+  img {
+    width: 120px;
+  }
+
+  ul {
+    display: flex;
+    
+
+    li {
+      color: $main-color;
+      margin-left: 25px;
+      font-size: 1.5rem;
+      &:hover {
+        color: $light-grey;
+      }
+    }
+  }
+  
+}
