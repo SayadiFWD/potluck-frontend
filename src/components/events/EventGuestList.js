@@ -8,9 +8,9 @@ import GuestCard from 'GuestCard';
 const EventGuestList = props => {
 	return (
   <div>
-			{props.map((guest, index) => (
+			{/* {props.map((guest, index) => (
 				<GuestCard key={index} guest={guest} />
-			))}
+			))} */}
   </div>
   );
 };
