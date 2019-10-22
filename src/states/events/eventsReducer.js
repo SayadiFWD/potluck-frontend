@@ -1,5 +1,5 @@
 // Libraries
-import { combineReducers } from "redux";
+import { combineReducers } from "states";
 
 // Types
 // import * as types from "./userTypes";

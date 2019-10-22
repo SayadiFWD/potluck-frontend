@@ -1,5 +1,5 @@
 // Library
-import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "states";
 import thunk from "redux-thunk";
 
 // Reducers
