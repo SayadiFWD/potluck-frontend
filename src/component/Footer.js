@@ -3,9 +3,14 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-  <div>
-
-  </div>
+    <footer>
+      <nav>
+        <ul>
+          <a href='#'><li>About</li></a>
+          <a href='#'><li>Contact</li></a>
+        </ul>
+      </nav>
+    </footer>
   );
 };
 
