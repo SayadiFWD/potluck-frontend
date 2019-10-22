@@ -8,7 +8,7 @@ import Dash from 'components/dashboard/Dash';
 import EventPage from 'components/events/EventPage';
 import Footer from 'components/Footer';
 import TabsSL from 'components/TabsSL'
-import Header from "components/Header";
+import Header from 'components/Header';
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
       <Header />
       <TabsSL />
       <Footer />
-      <CreatePotluck/>
+      {/* <CreatePotluck/>
       <Dash/>
-      <EventPage/>
+      <EventPage/> */}
     </div>
   );
 }

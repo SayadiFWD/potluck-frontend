@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 const SignUp = ({ errors, touched, values, status }) => {
 	return (
-      <Form>
+      <Form className='sl-form'>
         <div className='field'>
           <Field className='control' type='text' name='username' placeholder='Username' />
           {touched.username && errors.username && (
@@ -25,25 +25,17 @@ const SignUp = ({ errors, touched, values, status }) => {
           <p className="error">{errors.password}</p>
         )}
         </div>
-        <div className='field'>
-          <Field className='control' type='password' name='confirmPassword' placeholder='Confirm Password'/>
-          {touched.confirmPassword && errors.confirmPassword && (
-          <p className="error">{errors.confirmPassword}</p>
-        )}
-        </div>
-
         <button className='button is-link'>Sign Up</button>
       </Form>
   );
 };
 
 const SignUpForm = withFormik({
-  mapPropsToValues({ username, email, password, confirmPassword }) {
+  mapPropsToValues({ username, email, password }) {
     return {
       username: username || '',
       email: email || '',
       password: password || '',
-      confirmPassword: confirmPassword || ''
     }
   },
 
@@ -51,7 +43,6 @@ const SignUpForm = withFormik({
     username: Yup.string().required('You need a username'),
     email: Yup.string().email().required('Please enter your email'),
     password: Yup.string().required,
-    confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Password does not match').required(),
   }),
 
   handleSubmit(values, { setStatus, resetForm }) {

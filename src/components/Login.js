@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 const Login = ({ errors, touched, values, status }) => {
 	return (
-    <Form>
+    <Form className='sl-form'>
       <div className='field is-large'>
         <Field className='control is-large' type='text' name='username' placeholder='Username'/>
         {touched.username && errors.username && (
