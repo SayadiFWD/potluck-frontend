@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components 
-import FoodItem from '';
+import FoodItem from 'components/events/FoodItem';
 
 const EventFoodList = props => {
 	return (

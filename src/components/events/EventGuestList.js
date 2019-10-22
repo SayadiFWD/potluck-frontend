@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Components 
-import GuestCard from 'GuestCard';
+import GuestCard from 'components/events/GuestCard';
 
 
 const EventGuestList = props => {

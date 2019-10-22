@@ -10,7 +10,6 @@ import Footer from 'components/Footer';
 import Login from 'components/Login';
 import SignUp from 'components/SignUp';
 import Header from "components/Header";
-import Navigation from 'components/SignUp';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
       <Dash/>
       <EventPage/>
       <Login/>
-      <Navigation/>
     </div>
   );
 }
