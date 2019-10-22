@@ -1,7 +1,7 @@
 // Libraries
 import React from "react";
 
-const FoodItem = () => {
+const GuestCard = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const FoodItem = () => {
   );
 }
 
-export default FoodItem;
+export default GuestCard;

@@ -1,6 +1,9 @@
 // Libraries
 import React from 'react';
 
+// Components 
+import FoodItem from './FoodItem';
+
 const EventFoodList = props => {
 	return (
   <div>
