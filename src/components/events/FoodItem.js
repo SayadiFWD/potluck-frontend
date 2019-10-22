@@ -1,10 +1,11 @@
 // Libraries
 import React from "react";
 
-const FoodItem = () => {
+const FoodItem = props => {
   return (
     <div>
-
+      <p>{props}</p>
+      <p>{props}</p>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 // Libraries
 import React from "react";
 
-const GuestCard = () => {
+const GuestCard = props => {
   return (
     <div>
-
+      <p>{props}</p>
     </div>
   );
 }
