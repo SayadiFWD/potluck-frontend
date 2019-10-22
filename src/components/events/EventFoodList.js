@@ -9,14 +9,5 @@ const EventFoodList = () => {
   );
 };
 
-// class EventFoodList extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default EventFoodList;

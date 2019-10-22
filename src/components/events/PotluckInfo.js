@@ -9,14 +9,5 @@ const PotluckInfo = () => {
   );
 };
 
-// class PotluckInfo extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default PotluckInfo;
