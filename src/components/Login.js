@@ -1,5 +1,6 @@
 // Libraries
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Form, withFormik, Field } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
@@ -37,25 +38,15 @@ const LoginForm = withFormik({
     password: Yup.string().required,
   }),
 
-  handleSubmit(props, values, { setStatus, resetForm }) {
+  handleSubmit(values, { setStatus, resetForm, props }, history) {
     resetForm()
     axios.post('https://reqres.in/api/users/', values)
       .then(res => {
         setStatus(res.data)
-        props.history.push('/createpotluck')
+        props.history.push('/dashboard') //or should be users/:id/dashboard?
       })
       .catch(err => console.log(err))
   }
 })(Login)
 
-// class Login extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
-
-export default LoginForm;
+export default withRouter(LoginForm);

@@ -4,7 +4,7 @@ import { NavLink, Route } from 'react-router-dom';
 
 //components 
 import SignUpForm from 'components/SignUp';
-import Login from 'components/Login';
+import LoginForm from 'components/Login';
 
 const TabsSL = () => {
   const[clicked, setClicked] = useState('')
@@ -33,7 +33,7 @@ const TabsSL = () => {
     </ul>
     <div>
       <Route path='/signup' component={SignUpForm}/>
-      <Route path='/login' component={Login}/>
+      <Route path='/login' component={LoginForm}/>
     </div>
   </div>
   )
