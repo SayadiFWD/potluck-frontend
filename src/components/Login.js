@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState  } from 'react';
+import React from 'react';
 import { Form, withFormik, Field } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
@@ -37,12 +37,12 @@ const LoginForm = withFormik({
     password: Yup.string().required,
   }),
 
-  handleSubmit(values, { setStatus, resetForm }) {
+  handleSubmit(props, values, { setStatus, resetForm }) {
     resetForm()
     axios.post('https://reqres.in/api/users/', values)
       .then(res => {
         setStatus(res.data)
-        // props.history.push(`/createpotluck`)
+        props.history.push('/createpotluck')
       })
       .catch(err => console.log(err))
   }

@@ -1,10 +1,11 @@
 // Libraries
-import React, { useState  } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Form, withFormik, Field } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 
-const SignUp = ({ errors, touched, values, status }) => {
+const SignUp = ({ errors, touched }) => {
 	return (
       <Form className='sl-form'>
         <div className='field'>
@@ -25,7 +26,7 @@ const SignUp = ({ errors, touched, values, status }) => {
           <p className="error">{errors.password}</p>
         )}
         </div>
-        <button className='button is-link'>Sign Up</button>
+        <NavLink to='/login'><button className='button is-link'>Sign Up</button></NavLink>
       </Form>
   );
 };
@@ -45,12 +46,10 @@ const SignUpForm = withFormik({
     password: Yup.string().required,
   }),
 
-  handleSubmit(values, { setStatus, resetForm }) {
-    resetForm()
-    axios.post('https://reqres.in/api/users/', values)
+  handleSubmit(values) {
+    axios.post('https://potluck-backend.herokuapp.com/api/auth/register', values)
       .then(res => {
-        setStatus(res.data)
-        // props.history.push(`/login`)  
+        console.log(res)
       })
       .catch(err => console.log(err))
   }
