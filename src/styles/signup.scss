@@ -1,19 +1,58 @@
 .tabs {
   width: 25%;
   margin: 0 auto;
+  margin-bottom: 30px;
   padding-top: 30px;
-  
+  flex-direction: column;
+    ul {
+      justify-content: space-around;
+      border: none;
+    }
     li {
     font-size: 1.5rem;
+    padding-bottom: 10px;
+
   }
 }
 
-.tabs.is-centered ul {
-  justify-content: space-between; 
+input {
+  border-radius: 5px;
+  border: 1px solid $light-grey;
+  padding: 5px;
+  &:focus {
+    border-color: $main-color;
+  }
 }
+
+.control {
+  font-size: 1.2rem;
+}
+
+.field {
+  width: 80%;
+}
+
+.react-tabs__tab-list {
+  margin-bottom: 40px;
+ }
+
+ .react-tabs__tab--selected {
+   color: $yellow;
+   border-bottom: 4px solid $yellow;
+ }
+
+ #react-tabs-1,  #react-tabs-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+ 
 
 .button.is-link {
   background-color: $main-color;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
   &:hover {
     background-color: white;
     color: $main-color;

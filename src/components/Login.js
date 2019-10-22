@@ -4,15 +4,20 @@ import { Form, withFormik, Field } from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 
-const Login = () => {
-
+const Login = ({ errors, touched, values, status }) => {
 	return (
     <Form>
-      <div className='field'>
-        <Field className='control' type='text' name='username' placeholder='Username'/>
+      <div className='field is-large'>
+        <Field className='control is-large' type='text' name='username' placeholder='Username'/>
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
+        )}
       </div>
       <div className='field'>
         <Field className='control' type='password' name='password' placeholder='Password'/>
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
       </div>
       <button className='button is-link'>Log In</button>
     </Form>
@@ -35,7 +40,10 @@ const LoginForm = withFormik({
   handleSubmit(values, { setStatus, resetForm }) {
     resetForm()
     axios.post('https://reqres.in/api/users/', values)
-      .then(res => {setStatus(res.data)})
+      .then(res => {
+        setStatus(res.data)
+        // props.history.push(`/createpotluck`)
+      })
       .catch(err => console.log(err))
   }
 })(Login)
