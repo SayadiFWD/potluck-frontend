@@ -2,7 +2,7 @@
 import { combineReducers } from "redux";
 
 // Types
-import * as types from "./userTypes";
+// import * as types from "./userTypes";
 
 
 
