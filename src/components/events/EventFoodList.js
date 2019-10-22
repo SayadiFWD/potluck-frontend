@@ -1,22 +1,18 @@
 // Libraries
 import React from 'react';
 
-const EventFoodList = () => {
+// Components 
+import FoodItem from 'FoodItem';
+
+const EventFoodList = props => {
 	return (
   <div>
-
+			{props.map((foodItem, index) => (
+				<FoodItem key={index} foodItem={foodItem} />
+			))}
   </div>
   );
 };
 
-// class EventFoodList extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default EventFoodList;

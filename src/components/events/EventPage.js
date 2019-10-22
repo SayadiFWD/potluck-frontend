@@ -1,22 +1,20 @@
 // Libraries
 import React from 'react';
 
+// Components
+import EventFoodList from 'EventFoodList';
+import EventGuestList from 'EventGuestList';
+import PotluckInfo from 'PotluckInfo';
+
 const EventPage = () => {
 	return (
   <div>
-
+    <EventFoodList/>
+    <EventGuestList/>
+    <PotluckInfo/>
   </div>
   );
 };
 
-// class EventPage extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default EventPage;

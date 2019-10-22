@@ -1,22 +1,19 @@
 // Libraries
 import React from 'react';
 
-const EventGuestList = () => {
+// Components 
+import GuestCard from 'GuestCard';
+
+
+const EventGuestList = props => {
 	return (
   <div>
-
+			{props.map((guest, index) => (
+				<GuestCard key={index} guest={guest} />
+			))}
   </div>
   );
 };
 
-// class EventGuestList extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default EventGuestList;

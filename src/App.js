@@ -3,15 +3,16 @@ import React from "react";
 import "./styles/styles.scss";
 
 //Components
-// import CreatePotluck from './component/createpotluckform/CreatePotluck';
-// import Dash from './component/dashboard/Dash';
-// import EventPage from './component/events/EventPage';
-// import Footer from './component/Footer';
-// import Login from './component/Login';
-// import SignUp from './component/SignUp';
+import CreatePotluck from 'component/createpotluckform/CreatePotluck';
+import Dash from 'component/dashboard/Dash';
+import EventPage from 'component/events/EventPage';
+import Footer from 'component/Footer';
+import Login from 'component/Login';
+import SignUp from 'component/SignUp';
 import Header from "component/Header";
 import Footer from "component/Footer";
 import SignUp from "component/SignUp";
+import Navigation from 'component/SignUp';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
       <Header />
       <SignUp />
       <Footer />
+      <CreatePotluck/>
+      <Dash/>
+      <EventPage/>
+      <Login/>
+      <Navigation/>
     </div>
   );
 }

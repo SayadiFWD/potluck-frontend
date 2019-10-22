@@ -1,22 +1,16 @@
 // Libraries
-import React from 'react';
+import React from "react";
 
-const PotluckInfo = () => {
+const PotluckInfo = props => {
 	return (
-  <div>
+		<div>
+      <p>Event Name: {props}</p>
+      <p>Date: {props}</p>
+      <p>Time: {props}</p>
+      <p>Address: {props}</p>
 
-  </div>
-  );
+		</div>
+	);
 };
-
-// class PotluckInfo extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default PotluckInfo;
