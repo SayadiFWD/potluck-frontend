@@ -2,15 +2,15 @@
 import React from 'react';
 
 // Components 
-import GuestCard from 'GuestCard';
+import GuestCard from 'components/events/GuestCard';
 
 
 const EventGuestList = props => {
 	return (
   <div>
-			{props.map((guest, index) => (
+			{/* {props.map((guest, index) => (
 				<GuestCard key={index} guest={guest} />
-			))}
+			))} */}
   </div>
   );
 };

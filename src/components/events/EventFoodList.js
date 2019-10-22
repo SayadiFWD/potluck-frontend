@@ -2,14 +2,14 @@
 import React from 'react';
 
 // Components 
-import FoodItem from 'FoodItem';
+import FoodItem from 'components/events/FoodItem';
 
 const EventFoodList = props => {
 	return (
   <div>
-			{props.map((foodItem, index) => (
+			{/* {props.map((foodItem, index) => (
 				<FoodItem key={index} foodItem={foodItem} />
-			))}
+			))} */}
   </div>
   );
 };
