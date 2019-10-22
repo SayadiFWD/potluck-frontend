@@ -7,13 +7,13 @@ import SignUpForm from 'components/SignUp';
 import LoginForm from 'components/Login';
 
 const TabsSL = () => {
-  const[isActive, setIsActive] = useState('')
+  const[clicked, setClicked] = useState('')
 
   const clickHandler = () => {
-    setIsActive(true)
+    setClicked(true)
   }
 
-  const className = isActive ? 'is-active' : '';
+  const className = clicked ? 'is-active' : '';
 
   return (
   <div class="tabs is-centered is-large box">
