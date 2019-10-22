@@ -16,7 +16,7 @@ export const CreateEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.post(APIURL + `/api/events/${id}`)
 		.then(res => {
-			dispatch(types.SUCCESS(res.data));
+			dispatch(success(res.data));
 		})
 		.catch(err => {
 			console.log(err);
@@ -27,7 +27,7 @@ export const EditEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.put(APIURL + `/api/events/${id}`)
 		.then(res => {
-			dispatch(types.SUCCESS(res.data));
+			dispatch(success(res.data));
 		})
 		.catch(err => {
 			console.log(err);
@@ -38,7 +38,7 @@ export const DeleteEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.delete(APIURL + `/api/events/${id}`)
 		.then(res => {
-			dispatch(types.SUCCESS(res.data));
+			dispatch(success(res.data));
 		})
 		.catch(err => {
 			console.log(err);
