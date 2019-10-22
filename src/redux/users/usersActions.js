@@ -38,3 +38,14 @@ export const DeleteUser = id => dispatch => {
     console.log(err)
   })
 }
+
+export const GetUserEvents = id => dispatch => {
+  UseAxiosWithAuth()
+  .get(APIURL + `/api/users/${id}`)
+  .then(res=>{
+    dispatch(action(res.data))
+  })
+  .catch(err=>{
+    console.log(err)
+  })
+}
