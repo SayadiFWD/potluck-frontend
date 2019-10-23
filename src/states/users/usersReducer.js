@@ -1,12 +1,15 @@
 // Libraries
-import { combineReducers } from "states";
+// import { combineReducers } from "states";
 
 // Types
 // import * as types from "./userTypes";
 
-
-
-
-export const UserReducers = combineReducers({
-	
-});
+const initialUser = {
+  token: null
+};
+export const userReducers = (user = initialUser, action) => {
+  switch (action.type) {
+    default:
+      return user;
+  }
+};

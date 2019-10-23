@@ -1,23 +1,23 @@
 // Library
-import { createStore, combineReducers, compose, applyMiddleware } from "states";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 // Reducers
-import { EventsReducers } from "event/eventReducer";
-import { UsersReducers } from "user/userReducer";
+import { EventsReducers } from "states/events/eventsReducer";
+import { userReducers } from "states/users/usersReducer";
 
 const CombinedReducers = combineReducers({
-	events: EventsReducers,
-	users: UsersReducers,
+  events: EventsReducers,
+  user: userReducers
 });
 
 const store = createStore(
-	CombinedReducers,
-	{},
-	compose(
-		applyMiddleware(thunk),
-		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-	)
+  CombinedReducers,
+  {},
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
 export default store;
