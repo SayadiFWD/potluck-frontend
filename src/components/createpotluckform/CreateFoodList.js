@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Formik, Form, Field, FieldArray, withFormik } from 'formik';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Form, Field, FieldArray, withFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { TextField } from 'formik-material-ui';
 import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
@@ -37,7 +35,6 @@ const CreateFoodList = ({ values }) => {
         )}
       />
     </Form>
- 
   );
 };
 
@@ -50,7 +47,6 @@ const CreateFoodListForm = withFormik({
 
   handleSubmit(values, { setStatus, props }) {
     console.log('props.location.state.eventName', props.location.state.eventName)
-    // console.log('values', values)
     setStatus(values)
     props.history.push({
       pathname: '/inviteguests',
