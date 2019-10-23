@@ -12,7 +12,7 @@ export const success = () => {
 	};
 };
 
-export const CreateEvent = id => dispatch => {
+export const createEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.post(APIURL + `/api/events/${id}`)
 		.then(res => {
@@ -23,7 +23,7 @@ export const CreateEvent = id => dispatch => {
 		});
 };
 
-export const EditEvent = id => dispatch => {
+export const editEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.put(APIURL + `/api/events/${id}`)
 		.then(res => {
@@ -34,7 +34,7 @@ export const EditEvent = id => dispatch => {
 		});
 };
 
-export const DeleteEvent = id => dispatch => {
+export const deleteEvent = id => dispatch => {
 	UseAxiosWithAuth()
 		.delete(APIURL + `/api/events/${id}`)
 		.then(res => {

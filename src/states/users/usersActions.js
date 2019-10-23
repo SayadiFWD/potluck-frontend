@@ -26,7 +26,7 @@ export const createUsers = id => dispatch => {
     });
 };
 
-export const EditUser = id => dispatch => {
+export const editUser = id => dispatch => {
   axiosWithAuth()
     .put(`/api/users/${id}`)
     .then(res => {
@@ -36,8 +36,7 @@ export const EditUser = id => dispatch => {
       console.log(err);
     });
 };
-
-export const DeleteUser = id => dispatch => {
+export const deleteUser = id => dispatch => {
   axiosWithAuth()
     .delete(`/api/users/${id}`)
     .then(res => {
@@ -48,7 +47,7 @@ export const DeleteUser = id => dispatch => {
     });
 };
 
-export const GetUserEvents = id => dispatch => {
+export const getUserEvents = id => dispatch => {
   axiosWithAuth()
     .get(`/api/users/${id}`)
     .then(res => {

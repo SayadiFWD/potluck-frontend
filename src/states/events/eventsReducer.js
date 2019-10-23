@@ -4,7 +4,7 @@
 // Types
 // import * as types from "./userTypes";
 
-export const EventsReducers = (events = [], action) => {
+export const eventsReducers = (events = [], action) => {
   switch (action.type) {
     default:
       return events;

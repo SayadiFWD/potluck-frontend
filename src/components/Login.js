@@ -6,9 +6,10 @@ import axios from "axios";
 import * as Yup from "yup";
 
 const Login = ({ errors, touched, values, status }) => {
-  const user = useSelector(state => state.user);
+  // const user = useSelector(state => state.currentUser);
+  // console.log(user)
   return (
-    <Form className="sl-form">
+    <Form className="sl-form tabs is-centered is-large box">
       <div className="field is-large">
         <Field
           className="control is-large"

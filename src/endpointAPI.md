@@ -558,8 +558,36 @@ http method: **[GET]**
 
 1) Design State of the App (what slices of state is needed)
 
+createpotluck: input data
+createfoodlistform: input data, list of foods
+inviteguest: input data, list of guests
+
+first two forms will carry on and add state 
+to the next form
+last form will have the action of submit to post
+
+dashboard: potlucklist => grab all events => filter by id
+=> for nearest event filter eventlist feed
+
+same with list function => will find event
+and insert props into 
+
+event page: selected event
+selected event guestlist
+selected event foodlist
+selected event info
+
+login: input data
+
+signup: input data
+
+
 
 2) Design the types of actions the state might suffer
+
+CurrentUser: [create, edit, delete] user 
+EventsList: [create, edit, delete]
+
 3) Create one reducer function per slice of state
 4) Combine all reducers
 5) use create store to create redux store

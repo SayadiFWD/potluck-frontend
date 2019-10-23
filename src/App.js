@@ -11,11 +11,13 @@ import Header from "components/Header";
 import CreatePotluckForm from "components/createpotluckform/CreatePotluck";
 import CreateFoodListForm from "components/createpotluckform/CreateFoodList";
 
+
 function App() {
   return (
     <div className="App">
       <Header />
-      <Route path="/potluckform" component={CreatePotluckForm} />
+      {/* <Route path="/potluckform" component={CreatePotluckForm} /> */}
+    
       <Switch>
         <Route exact path="/dashboard" component={Dashboad} />
         <Route exact path="/" component={TabsSL} />
