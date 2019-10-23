@@ -1,4 +1,3 @@
-
 export const SUCCESS = 'SUCCESS';
 
 export const PENDING = 'PENDING';
