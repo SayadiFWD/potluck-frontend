@@ -22,7 +22,7 @@ const TabsSL = () => {
           <li className={className} onClick={clickHandler}>
             <a>
               <span className="icon is-small">
-                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                <i className="fas fa-user-plus" aria-hidden="true"></i>
               </span>
               <span>Sign Up</span>
             </a>
