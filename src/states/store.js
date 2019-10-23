@@ -7,8 +7,8 @@ import { eventsReducers } from "states/events/eventsReducer";
 import { userReducers } from "states/users/usersReducer";
 
 const CombinedReducers = combineReducers({
-  currentUser: eventsReducers,
-  user: userReducers
+  eventList: eventsReducers,
+  currentUser: userReducers
 });
 
 const store = createStore(

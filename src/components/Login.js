@@ -1,5 +1,6 @@
 // Libraries
 import React from "react";
+import { withRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { Form, withFormik, Field } from "formik";
 import axios from "axios";
@@ -9,7 +10,7 @@ const Login = ({ errors, touched, values, status }) => {
   // const user = useSelector(state => state.currentUser);
   // console.log(user)
   return (
-    <Form className="sl-form tabs is-centered is-large box">
+    <Form className="sl-form">
       <div className="field is-large">
         <Field
           className="control is-large"
@@ -57,10 +58,11 @@ const LoginForm = withFormik({
       .post("https://reqres.in/api/users/", values)
       .then(res => {
         setStatus(res.data);
-        props.history.push("/dashboard"); //or should be users/:id/dashboard?
+        console.log(res);
+        props.history.push("/dashboard"); 
       })
       .catch(err => console.log(err));
   }
 })(Login);
 
-export default LoginForm;
+export default withRouter(LoginForm);

@@ -4,6 +4,13 @@ import * as types from "states/users/usersTypes";
 // // Helpers
 import { axiosWithAuth } from "helpers/auth";
 
+export const displayUserInfo = userInfo =>{
+  return{
+    type: types.GET_USER_INFO,
+    payload: userInfo,
+  };
+}
+
 export const success = () => {
   return {
     type: types.SUCCESS
@@ -47,11 +54,11 @@ export const deleteUser = id => dispatch => {
     });
 };
 
-export const getUserEvents = id => dispatch => {
+export const getUserWithEvents = id => dispatch => {
   axiosWithAuth()
-    .get(`/api/users/${id}`)
+    .get(`/api/users/${id}/events`)
     .then(res => {
-      dispatch(success(res.data));
+      dispatch(displayUserInfo (res.data));
     })
     .catch(err => {
       console.log(err);
