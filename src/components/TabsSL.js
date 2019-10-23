@@ -6,9 +6,14 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import SignUpForm from "components/SignUp";
 import LoginForm from "components/Login";
 
+
 const TabsSL = ({match}) => {
 	const [clicked, setClicked] = useState("");
- console.log(match.url)
+
+	const exact = match.url;
+
+	console.log(exact)
+
 	const clickHandler = () => {
 		setClicked(true);
 	};
@@ -18,7 +23,7 @@ const TabsSL = ({match}) => {
 	return (
 		<div className='tabs is-centered is-large box'>
 			<ul>
-				<NavLink className='nav-link' to='/signup'>
+				<NavLink className='nav-link' to={`${exact}signup`}>
 					<li className={className} onClick={clickHandler}>
 						<a>
 							<span className='icon is-small'>
@@ -28,7 +33,7 @@ const TabsSL = ({match}) => {
 						</a>
 					</li>
 				</NavLink>
-				<NavLink className='nav-link' to='/login'>
+				<NavLink className='nav-link' to={`${exact}login`}>
 					<li className={className} onClick={clickHandler}>
 						<a>
 							<span className='icon is-small'>
@@ -41,8 +46,8 @@ const TabsSL = ({match}) => {
 			</ul>
 			<div>
 				<Switch>
-					<Route path='/signup' exact render={() => <SignUpForm />} />
-					<Route path='/login' exact render={() => <LoginForm />} />
+					<Route path={`${exact}signup`} render={() => <SignUpForm />} />
+					<Route path={`${exact}login`} render={() => <LoginForm />} />
 					{/* <Route path='/signup' component={SignUpForm} />
 					<Route path='/login' component={LoginForm} /> */}
 				</Switch>

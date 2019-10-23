@@ -19,7 +19,7 @@ function App() {
       {/* <Route path="/potluckform" component={CreatePotluckForm} /> */}
      
       <Switch>
-      <Route exact path="/"  render={ () => <TabsSL  />} />
+      <Route  path="/" component={TabsSL} />
         <Route exact path="/dashboard">
           <Dashboad/>
         </Route>
