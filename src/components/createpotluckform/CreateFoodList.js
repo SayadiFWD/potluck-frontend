@@ -1,22 +1,44 @@
 // Libraries
-import React from 'react';
+import React, { useState } from 'react';
+import { withFormik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 
-const CreateFoodList = () => {
+
+const CreateFoodList = (props) => {
+  console.log('props from foodlist', props)
 	return (
-  <div>
-
-  </div>
+    <Form>
+      <div className="field is-large">
+        <Field 
+          className='control'
+          name='foodItem' 
+          type='text' 
+          placeholder='Enter food item'
+        />
+      </div>
+      <i class="fas fa-plus-circle"></i>
+      <button className="button is-link">Next</button>
+    </Form>
   );
 };
 
-// class CreateFoodList extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
+const CreateFoodListForm = withFormik({
+  mapPropsToValues({ foodItem }) {
+    return {
+      foodItem: foodItem || '',
+    }
+  },
 
-export default CreateFoodList;
+  handleSubmit(values, { setStatus, props }) {
+    setStatus(values)
+    props.history.push({
+      pathname: '/foodform',
+      state: { 
+        foodItem: values.foodItem,
+        //plus state from before - how do we access this??
+      }
+    })
+  }
+})(CreateFoodList);
+
+export default CreateFoodListForm;
