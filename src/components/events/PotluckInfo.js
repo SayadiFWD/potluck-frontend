@@ -1,7 +1,8 @@
 // Libraries
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-const PotluckInfo = props => {
+export const PotluckInfo = ({props}) => {
 	return (
 		<div>
       {/* <p>Event Name: {props}</p>
@@ -13,4 +14,15 @@ const PotluckInfo = props => {
 	);
 };
 
-export default PotluckInfo;
+
+const mapStateToProps = state => {
+	return {};
+};
+const mapDispatchToProps = dispatch => {
+	return {};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(PotluckInfo);

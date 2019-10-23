@@ -1,10 +1,12 @@
 // Libraries
 import React from "react";
+import { useSelector } from "react-redux";
 import { Form, withFormik, Field } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 
 const Login = ({ errors, touched, values, status }) => {
+  const user = useSelector(state => state.user);
   return (
     <Form className="sl-form">
       <div className="field is-large">
@@ -35,6 +37,7 @@ const Login = ({ errors, touched, values, status }) => {
 };
 
 const LoginForm = withFormik({
+  
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
