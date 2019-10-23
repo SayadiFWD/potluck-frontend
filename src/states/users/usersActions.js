@@ -2,56 +2,81 @@
 import * as types from "states/users/usersTypes";
 
 // // Helpers
-import { UseAxiosWithAuth } from "../../helpers/auth";
-
-const APIURL = 'https://potluck-backend.herokuapp.com/';
+import { axiosWithAuth } from "helpers/auth";
 
 export const success = () => {
   return {
     type: types.SUCCESS
-  }
-}
+  };
+};
 
-export const CreateUsers = id => dispatch => { 
-  UseAxiosWithAuth()
-  .put(APIURL + `/api/users/${id}`)
-  .then(res=>{
-    dispatch(success(res.data))
-  })
-  .catch(err=>{
-    console.log(err)
-  })
-}
+const updateUser = user => ({
+  type: types.SUCCESS,
+  payload: user
+});
+
+export const createUsers = id => dispatch => {
+  axiosWithAuth()
+    .put(`/api/users/${id}`)
+    .then(res => {
+      dispatch(success(res.data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 export const EditUser = id => dispatch => {
-  UseAxiosWithAuth()
-  .put(APIURL + `/api/users/${id}`)
-  .then(res=>{
-    dispatch(success(res.data))
-  })
-  .catch(err=>{
-    console.log(err)
-  })
-}
+  axiosWithAuth()
+    .put(`/api/users/${id}`)
+    .then(res => {
+      dispatch(success(res.data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 export const DeleteUser = id => dispatch => {
-  UseAxiosWithAuth()
-  .delete(APIURL + `/api/users/${id}`)
-  .then(res=>{
-    dispatch(success(res.data))
-  })
-  .catch(err=>{
-    console.log(err)
-  })
-}
+  axiosWithAuth()
+    .delete(`/api/users/${id}`)
+    .then(res => {
+      dispatch(success(res.data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
 export const GetUserEvents = id => dispatch => {
-  UseAxiosWithAuth()
-  .get(APIURL + `/api/users/${id}`)
-  .then(res=>{
-    dispatch(success(res.data))
-  })
-  .catch(err=>{
-    console.log(err)
-  })
-}
+  axiosWithAuth()
+    .get(`/api/users/${id}`)
+    .then(res => {
+      dispatch(success(res.data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const login = (username, password) => dispatch => {
+  axiosWithAuth()
+    .post("/auth/login", { username, password })
+    .then(({ data }) => {
+      dispatch(updateUser(data));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+export const register = user => dispatch => {
+  axiosWithAuth()
+    .post("/auth/register", user)
+    .then(({ data }) => {
+      dispatch(updateUser(data));
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
