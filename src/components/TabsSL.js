@@ -1,18 +1,24 @@
-//libraries
+// libraries
 import React, { useState } from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
 
-//components
+// components
 import SignUpForm from "components/SignUp";
 import LoginForm from "components/Login";
 
+// actions
+import * as actions from 'states/users/usersActions';
+
+// helpers
+import {useDispatchThunk} from 'helpers/useDispatchThunk';
+
 
 const TabsSL = ({match}) => {
+  const login = useDispatchThunk(actions.login)
+	
 	const [clicked, setClicked] = useState("");
 
 	const exact = match.url;
-
-	console.log(exact)
 
 	const clickHandler = () => {
 		setClicked(true);
@@ -48,8 +54,6 @@ const TabsSL = ({match}) => {
 				<Switch>
 					<Route path={`${exact}signup`} render={() => <SignUpForm />} />
 					<Route path={`${exact}login`} render={() => <LoginForm />} />
-					{/* <Route path='/signup' component={SignUpForm} />
-					<Route path='/login' component={LoginForm} /> */}
 				</Switch>
 			</div>
 		</div>
@@ -58,17 +62,4 @@ const TabsSL = ({match}) => {
 
 export default TabsSL;
 
-{
-	/* <div className='sl-tabs box'>
-      <div className='ul'>
-      <ul>
-        <NavLink to='/signup'><li className='is-active'><a>Sign Up</a></li></NavLink>
-        <NavLink to='/login'><li><a>Log In</a></li></NavLink>
-      </ul>
-      </div>
-      <div>
-        <Route path='/signup' component={SignUpForm}/>
-        <Route path='/login' component={LoginForm}/>
-      </div>
-  </div> */
-}
+// history={props.history} login={props.login}
