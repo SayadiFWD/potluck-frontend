@@ -89,3 +89,8 @@ export const register = user => dispatch => {
 			console.error(error);
 		});
 };
+
+export const logout = () => dispatch =>{
+	localStorage.clear();
+	dispatch(success());
+};

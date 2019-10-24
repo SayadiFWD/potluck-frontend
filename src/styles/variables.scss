@@ -1,6 +1,8 @@
 $main-color: #AD1046;
 $light-grey: #818DA0;
-$yellow: #E5BA33;
+// $yellow: #E5BA33;
+$yellow: lighten(#E5BA33, 10);
+// $yellow: darken(#E5BA33, 10);
 $dark-purple: #291A35;
 $success-green: #697f4d;
 $error-red: #f44336;
