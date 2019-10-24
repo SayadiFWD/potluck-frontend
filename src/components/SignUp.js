@@ -55,14 +55,4 @@ const SignUpForm = withFormik({
   }
 })(SignUp)
 
-// class SignUp extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
-
 export default SignUpForm;

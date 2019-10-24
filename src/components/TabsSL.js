@@ -20,22 +20,18 @@ const TabsSL = () => {
       <ul>
         <NavLink className="nav-link" to="/signup">
           <li className={className} onClick={clickHandler}>
-            <a>
               <span className="icon is-small">
                 <i className="fas fa-user-plus" aria-hidden="true"></i>
+                <span>Sign Up</span>
               </span>
-              <span>Sign Up</span>
-            </a>
           </li>
         </NavLink>
         <NavLink className="nav-link" to="/login">
           <li className={className} onClick={clickHandler}>
-            <a>
               <span className="icon is-small">
                 <i className="fas fa-sign-in-alt" aria-hidden="true"></i>
               </span>
               <span>Log In</span>
-            </a>
           </li>
         </NavLink>
       </ul>
@@ -49,17 +45,4 @@ const TabsSL = () => {
 
 export default TabsSL;
 
-{
-  /* <div className='sl-tabs box'>
-      <div className='ul'>
-      <ul>
-        <NavLink to='/signup'><li className='is-active'><a>Sign Up</a></li></NavLink>
-        <NavLink to='/login'><li><a>Log In</a></li></NavLink>
-      </ul>
-      </div>
-      <div>
-        <Route path='/signup' component={SignUpForm}/>
-        <Route path='/login' component={LoginForm}/>
-      </div>
-  </div> */
-}
+

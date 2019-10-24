@@ -9,13 +9,9 @@ const Header = () => {
     <header>
       <img src={logo} alt="feast logo" />
       <nav>
-        <ul>
-          <a href="#">
-            <li>About</li>
-          </a>
-          <a href="#">
-            <li>Contact</li>
-          </a>
+        <ul> {/* re-add <a>s */}
+          <li>About</li>
+          <li>Contact</li>
         </ul>
       </nav>
     </header>

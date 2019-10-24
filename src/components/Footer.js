@@ -5,10 +5,10 @@ const Footer = () => {
 	return (
     <footer>
       <nav>
-        <ul>
-          <a href='#'><li>About</li></a>
-          <a href='#'><li>Contact</li></a>
-        </ul>
+        <ul> {/* re-add <a>s */}
+          <li>About</li>
+          <li>Contact</li>
+          </ul>
       </nav>
     </footer>
   );

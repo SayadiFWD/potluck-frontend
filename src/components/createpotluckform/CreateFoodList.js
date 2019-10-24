@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { TextField } from 'formik-material-ui';
 import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
@@ -46,12 +46,12 @@ const CreateFoodListForm = withFormik({
   },
 
   handleSubmit(values, { setStatus, props }) {
-    console.log('props.location.state.eventName', props.location.state.eventName)
+    console.log('values.food', values.food)
     setStatus(values)
     props.history.push({
       pathname: '/inviteguests',
       state: { 
-        foodItem: values.food, 
+        food: values.food, 
         eventName: props.location.state.eventName,
         date: props.location.state.date,
         time: props.location.state.time,
