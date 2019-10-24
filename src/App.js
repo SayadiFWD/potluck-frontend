@@ -9,7 +9,8 @@ import Footer from "components/Footer";
 import TabsSL from "components/TabsSL";
 import Header from "components/Header";
 import CreatePotluckForm from "components/createpotluckform/CreatePotluck";
-import CreateFoodListForm from "components/createpotluckform/CreateFoodList";
+import CreateFoodList from "components/createpotluckform/CreateFoodList";
+import InviteGuest from "components/createpotluckform/InviteGuest"
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Switch>
         <Route exact path="/dashboard" component={Dashboad} />
         <Route exact path="/" component={TabsSL} />
-        <Route path="/foodform" component={CreateFoodListForm} />
+        <Route path="/foodform" component={CreateFoodList} />
+        <Route path="/inviteguests" component={InviteGuest} />
       </Switch>
       <Footer />
     </div>
