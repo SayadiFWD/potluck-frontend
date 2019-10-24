@@ -45,11 +45,9 @@ const SignUp = ({ errors, touched, ...props }) => {
 					<p className='error'>{errors.password}</p>
 				)}
 			</div>
-			<NavLink to='/login'>
 				<button type='submit' className='button is-link'>
 					Sign Up
 				</button>
-			</NavLink>
 		</Form>
 	);
 };
@@ -73,6 +71,7 @@ const SignUpForm = withFormik({
 
 	handleSubmit(values, { props }) {
 		props.register(values);
+		console.log(values)
 	}
 })(SignUp);
 
