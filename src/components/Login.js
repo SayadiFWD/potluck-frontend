@@ -2,17 +2,10 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
 import { Form, withFormik, Field } from "formik";
+import axios from 'axios'
 import * as Yup from "yup";
 
-// actions
-// import * as actions from 'states/users/usersActions';
-
-// // helpers
-// import {useDispatchThunk} from 'helpers/useDispatchThunk';
-
 const Login = ({ errors, touched, values, status }) => {
-  // const login = useDispatchThunk(actions.login)
-  // console.log(login);
   return (
     <Form className="sl-form">
       <div className="field is-large">
@@ -58,15 +51,14 @@ const LoginForm = withFormik({
 
   handleSubmit(values, { setStatus, resetForm, props }, history) {
     resetForm();
-    // login(values, history);
-      // axios
-      //   .post("https://reqres.in/api/users/", values)
-      //   .then(res => {
-      //     setStatus(res.data);
-      //     console.log(res);
-      //     props.history.push("/dashboard"); 
-      //   })
-      //   .catch(err => console.log(err));
+      axios
+        .post("https://reqres.in/api/users/", values)
+        .then(res => {
+          setStatus(res.data);
+          console.log(res);
+          props.history.push("/dashboard"); 
+        })
+        .catch(err => console.log(err));
   }
 })(Login);
 

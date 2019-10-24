@@ -6,15 +6,8 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import SignUpForm from "components/SignUp";
 import LoginForm from "components/Login";
 
-// actions
-import * as actions from 'states/users/usersActions';
-
-// helpers
-import {useDispatchThunk} from 'helpers/useDispatchThunk';
-
-
 const TabsSL = ({match}) => {
-  const login = useDispatchThunk(actions.login)
+
 	
 	const [clicked, setClicked] = useState("");
 
@@ -61,5 +54,3 @@ const TabsSL = ({match}) => {
 };
 
 export default TabsSL;
-
-// history={props.history} login={props.login}
