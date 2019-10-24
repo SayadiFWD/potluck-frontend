@@ -84,7 +84,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		register: (values, history) => dispatch(actions.register(values, history))
+		register: (values) => dispatch(actions.register(values))
 	};
 };
 
