@@ -22,7 +22,7 @@ const TabsSL = ({match}) => {
 	return (
 		<div className='tabs is-centered is-large box'>
 			<ul>
-				<NavLink className='nav-link' to={`${exact}signup`}>
+				<NavLink className='nav-link' to={`/landing/signup`}>
 					<li className={className} onClick={clickHandler}>
 						<a>
 							<span className='icon is-small'>
@@ -32,7 +32,7 @@ const TabsSL = ({match}) => {
 						</a>
 					</li>
 				</NavLink>
-				<NavLink className='nav-link' to={`${exact}login`}>
+				<NavLink className='nav-link' to={`/landing/login`}>
 					<li className={className} onClick={clickHandler}>
 						<a>
 							<span className='icon is-small'>
@@ -45,8 +45,8 @@ const TabsSL = ({match}) => {
 			</ul>
 			<div>
 				<Switch>
-					<Route path={`${exact}signup`} component={SignUpForm} />
-					<Route path={`${exact}login`} component={LoginForm} />
+					<Route path={`/landing/signup`} component={SignUpForm} />
+					<Route path={`/landing/login`} component={LoginForm} />
 				</Switch>
 			</div>
 		</div>

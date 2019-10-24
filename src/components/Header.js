@@ -16,13 +16,8 @@ const Header = () => {
 	let logout = useDispatchThunk(actions.logout);
 	const currentUser = useSelector(state => state.currentUser);
 
-	useEffect(() => {
-		console.log(currentUser.authorized)
-	}, [currentUser.authorized])
-
 	return (
 		<header>
-			{console.log(currentUser.authorized)}
 			<img src={logo} alt='feast logo' />
 			<nav>
 				<ul>

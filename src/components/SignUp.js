@@ -45,11 +45,9 @@ const SignUp = ({ errors, touched, ...props }) => {
 					<p className='error'>{errors.password}</p>
 				)}
 			</div>
-			<NavLink to='/login'>
 				<button type='submit' className='button is-link'>
 					Sign Up
 				</button>
-			</NavLink>
 		</Form>
 	);
 };
@@ -72,7 +70,7 @@ const SignUpForm = withFormik({
 	}),
 
 	handleSubmit(values, { props }) {
-		props.register(values);
+		props.register(values, props.history);
 	}
 })(SignUp);
 
@@ -84,7 +82,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		register: (values) => dispatch(actions.register(values))
+		register: (values, history) => dispatch(actions.register(values, history))
 	};
 };
 

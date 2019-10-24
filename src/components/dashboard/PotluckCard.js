@@ -1,22 +1,20 @@
 // Libraries
-import React from 'react';
+import React from "react";
+import { useSelector } from "react-redux";
 
 const PotluckCard = () => {
+  const currentUser = useSelector(state => state.currentUser);
 	return (
-  <div>
+		<div>
+			<h1>Card</h1>
+      {currentUser.events === [] ? currentUser.events.filter(event => 
+      <div>
+        <h1>Next Event</h1>
+      </div>
 
-  </div>
-  );
+      ): `No Events`}
+		</div>
+	);
 };
-
-// class PotluckCard extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default PotluckCard;
