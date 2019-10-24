@@ -1,22 +1,13 @@
 // Libraries
 import React from "react";
 
-const InviteGuest = () => {
+const InviteGuest = (props) => {
+  console.log('gueslist props', props)
 	return (
   <div>
-
+    <h2>Invite your guests!</h2>
   </div>
   );
 };
-
-// class InviteGuest extends React.Component {
-//   render(
-//     return (
-//     <div>
-      
-//     </div>
-//     );
-//   );
-// };
 
 export default InviteGuest;

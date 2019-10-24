@@ -1,41 +1,61 @@
-// Libraries
-import React, { useState } from 'react';
-import { withFormik, Field, Form } from 'formik';
+import React from 'react';
+import { Form, Field, FieldArray, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { TextField } from 'formik-material-ui';
+import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
+import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
 
-
-const CreateFoodList = (props) => {
-  console.log('props from foodlist', props)
+const CreateFoodList = ({ values }) => {
 	return (
     <Form>
-      <div className="field is-large">
-        <Field 
-          className='control'
-          name='foodItem' 
-          type='text' 
-          placeholder='Enter food item'
-        />
-      </div>
-      <i class="fas fa-plus-circle"></i>
-      <button className="button is-link">Next</button>
+      <FieldArray
+        name="food"
+        render={arrayHelpers => (
+          <div>
+            {values.food && values.food.length > 0 ? (
+              values.food.map((foodItem, index) => (
+                <div key={index}>
+                  <Field 
+                    name={`food.${index}`}
+                    component={TextField}
+                  />
+                  <RemoveCircleOutline onClick={() => arrayHelpers.remove(index)}/>
+                  <AddCircleOutline onClick={() => arrayHelpers.insert(index, "")}/>
+                </div>
+              ))
+            ) : (
+              <button type="button" onClick={() => arrayHelpers.push("")}>
+                Add a food item
+              </button>
+            )}
+            <div>
+              <button type="submit" className="button is-link">Submit</button>     
+            </div>
+          </div>
+        )}
+      />
     </Form>
   );
 };
 
 const CreateFoodListForm = withFormik({
-  mapPropsToValues({ foodItem }) {
+  mapPropsToValues({ food }) {
     return {
-      foodItem: foodItem || '',
+      food: food || '',
     }
   },
 
   handleSubmit(values, { setStatus, props }) {
+    console.log('props.location.state.eventName', props.location.state.eventName)
     setStatus(values)
     props.history.push({
-      pathname: '/foodform',
+      pathname: '/inviteguests',
       state: { 
-        foodItem: values.foodItem,
-        //plus state from before - how do we access this??
+        foodItem: values.food, 
+        eventName: props.location.state.eventName,
+        date: props.location.state.date,
+        time: props.location.state.time,
+        address: props.location.state.address
       }
     })
   }
