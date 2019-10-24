@@ -3,14 +3,16 @@ import React from 'react';
 import { useSelector } from "react-redux";
 
 // Components 
-// import FoodItem from 'components/events/FoodItem';
+import FoodItem from 'components/events/FoodItem';
 
-const EventFoodList = props => {
+const EventFoodList = () => {
+	const currentEvent = useSelector(state => state.currentEvent);
+
 	return (
   <div>
-			{/* {props.map((foodItem, index) => (
+			{currentEvent.food? currentEvent.food.map((foodItem, index) => (
 				<FoodItem key={index} foodItem={foodItem} />
-			))} */}
+			)):'Add Food'}
   </div>
   );
 };

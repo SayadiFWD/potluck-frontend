@@ -1,23 +1,22 @@
 import React from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
-import * as Yup from 'yup';
 import axios from 'axios';
 import { TextField } from 'formik-material-ui';
 import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
 
-const CreateFoodList = ({ values }) => {
+const InviteGuest = ({ values }) => {
 	return (
     <Form>
       <FieldArray
-        name="food"
+        name="guests"
         render={arrayHelpers => (
           <div>
-            {values.food && values.food.length > 0 ? (
-              values.food.map((food_item, index) => (
+            {values.guests && values.guests.length > 0 ? (
+              values.guests.map((guest, index) => (
                 <div key={index}>
                   <Field 
-                    name={`food.${index}`}
+                    name={`guests.${index}`}
                     component={TextField}
                   />
                   <RemoveCircleOutline onClick={() => arrayHelpers.remove(index)}/>
@@ -26,7 +25,7 @@ const CreateFoodList = ({ values }) => {
               ))
             ) : (
               <button type="button" onClick={() => arrayHelpers.push("")}>
-                Add a food item
+                Add a guest's email
               </button>
             )}
             <div>
@@ -39,39 +38,29 @@ const CreateFoodList = ({ values }) => {
   );
 };
 
-// axios request for events_id
-
-
-const CreateFoodListForm = withFormik({
-  mapPropsToValues({ food }) {
+const InviteGuestForm = withFormik({
+  mapPropsToValues({ guests }) {
     return {
-      food: food || '',
+      guests: guests || '',
     }
   },
 
   handleSubmit(values, { props }) {
-    const foodData = {...values } //! + events_id, which gets created when event is submitted. 
+    const users_id = props.history.location.state.id
+    const eventData = {...props.history.location.state, guests: values.guests, users_id: users_id}
+    console.log('users_id', users_id)
+    console.log('eventData', eventData)
     axios
-      .post("https://potluck-backend.herokuapp.com/api/foods", foodData) //! add events_id to post
+      .post("https://potluck-backend.herokuapp.com/api/events", eventData) //! 400 error
       .then(res => {
         console.log('res', res)
-        props.history.push('/event') //! /event/${events_id} 
+        props.history.push('/foodform')
       })
       .catch(error => {
         console.log('nope')
         console.error(error);
       });
-    props.history.push({
-      pathname: '/inviteguests',
-      state: { 
-        food_item: values.food, 
-        eventName: props.location.state.eventName,
-        date: props.location.state.date,
-        time: props.location.state.time,
-        address: props.location.state.address
-      }
-    })
   }
-})(CreateFoodList);
+})(InviteGuest);
 
-export default CreateFoodListForm;
+export default InviteGuestForm;

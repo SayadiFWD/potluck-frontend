@@ -61,7 +61,7 @@ export const deleteEvent = id => dispatch => {
 
 export const getEvent = id => dispatch => {
 	axiosWithAuth()
-	.get(APIURL + `/api/events/${id}`)
+	.get(APIURL + `/api/foods/:${id}/events`)
 	.then(res => {
 		dispatch(eventInfo(res.data));
 	})

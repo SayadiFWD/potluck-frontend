@@ -8,17 +8,23 @@ import EventPage from "components/events/EventPage";
 const PotluckCard = props => {
 	const currentUser = useSelector(state => state.currentUser);
 
-	const dummyinfo = [
-		{
-			id: 9,
-			event_name: "potluck at the park",
-			time: "5:00pm",
-			location: "NYC Center Park",
-			dates: "9-18-19",
-			guests: "Bob, steve, Smith, Sam",
-			users_id: 1
-		}
-	];
+	const dummyinfo = {
+		id: 1,
+		event_name: "Food at NYC park",
+		time: "5:00pm",
+		location: "NYC Center Park",
+		dates: "9-18-19",
+		guests: "Bob, Steve, Smith, Sam",
+		users_id: 1,
+		food: [
+			{
+				id: 1,
+				food_item: "pizza",
+				events_id: 1,
+				completed: false
+			}
+		]
+	};
 
 	return (
 		<div>
@@ -31,7 +37,7 @@ const PotluckCard = props => {
 						// });
 				  ) => <EventPage eventInfo={event} />)
 				: `No Events`}
-			<EventPage eventInfo={dummyinfo}/>
+			<EventPage eventInfo={dummyinfo} />
 		</div>
 	);
 };

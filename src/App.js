@@ -8,8 +8,8 @@ import Dashboard from "components/dashboard/Dashboard";
 import Footer from "components/Footer";
 import TabsSL from "components/TabsSL";
 import Header from "components/Header";
-import CreatePotluckForm from "components/createpotluckform/CreatePotluck";
-import CreateFoodListForm  from "components/createpotluckform/CreateFoodListForm ";
+import CreatePotluckForm from "components/createpotluckform/CreatePotluckForm";
+import CreateFoodListForm  from "components/createpotluckform/CreateFoodListForm";
 import InviteGuestForm from "components/createpotluckform/InviteGuestForm";
 import EventPage from 'components/events/EventPage';
 
@@ -20,10 +20,6 @@ function App() {
 	return (
 		<div className='App'>
 			<Header />
-			{/* <Route path='/foodform' component={CreateFoodListForm} />
-			<Route path='/potluckform' component={CreatePotluckForm} />
-			<Route path='/inviteguests' component={InviteGuestForm} /> */}
-
 			<Switch>
 				<Route path='/landing' component={TabsSL} />
 				<PrivateRoute exact path='/dashboard'  component={Dashboard}/>

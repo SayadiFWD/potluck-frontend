@@ -15,7 +15,6 @@ import PotluckList from "components/dashboard/PotluckList";
 
 const Dashboard = props => {
 	const currentUser = useSelector(state => state.currentUser);
-
 	const getUserInfo = useDispatchThunk(actions.getUserWithEvents);
 
 	useEffect(() => {
