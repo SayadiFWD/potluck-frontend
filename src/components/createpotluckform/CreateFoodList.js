@@ -46,7 +46,6 @@ const CreateFoodListForm = withFormik({
   },
 
   handleSubmit(values, { setStatus, props }) {
-    console.log('props.location.state.eventName', props.location.state.eventName)
     setStatus(values)
     props.history.push({
       pathname: '/inviteguests',

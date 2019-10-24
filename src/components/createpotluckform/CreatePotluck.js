@@ -9,7 +9,7 @@ const CreatePotluck = () => {
       <div className="field is-large">
         <Field 
           className='control'
-          name='eventName' 
+          name='event_name' 
           type='text' 
           placeholder='Event Name'
         />
@@ -17,7 +17,7 @@ const CreatePotluck = () => {
       <div className="field is-large">
         <Field 
           className='control'
-          name='date' 
+          name='dates' 
           type='text' 
           placeholder='Date'
         />
@@ -44,10 +44,10 @@ const CreatePotluck = () => {
 };
 
 const CreatePotluckForm = withFormik({
-  mapPropsToValues({ eventName, date, time, address }) {
+  mapPropsToValues({ event_name, dates, time, address }) {
     return {
-      eventName: eventName || '',
-      date: date || '',
+      event_name: event_name || '',
+      dates: dates || '',
       time: time || '',
       address: address || '',
     }
@@ -56,10 +56,10 @@ const CreatePotluckForm = withFormik({
   handleSubmit(values, { setStatus, props }) {
     setStatus(values)
     props.history.push({
-      pathname: '/foodform',
+      pathname: '/inviteguests',
       state: { 
-        eventName: values.eventName,
-        date: values.date,
+        event_name: values.event_name,
+        dates: values.dates,
         time: values.time,
         address: values.address
       }
