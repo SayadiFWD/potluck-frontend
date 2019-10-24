@@ -6,8 +6,8 @@ const Footer = () => {
     <footer>
       <nav>
         <ul>
-          <a href='#'><li>About</li></a>
-          <a href='#'><li>Contact</li></a>
+          <a href='https://hungry-carson-80f324.netlify.com/index.html'><li>About</li></a>
+          <a href='https://hungry-carson-80f324.netlify.com/about.html'><li>Contact</li></a>
         </ul>
       </nav>
     </footer>

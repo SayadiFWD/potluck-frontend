@@ -17,6 +17,20 @@ export const success = () => {
 	};
 };
 
+const logoutSuccess = token => {
+	return{
+		type: types.LOG_OUT_USER,
+		payload: token,
+	};
+};
+
+const loginSuccess = token => {
+	return{
+		type: types.LOGIN_USER,
+		payload: token,
+	};
+}
+
 const updateUser = user => ({
 	type: types.SUCCESS,
 	payload: user
@@ -70,6 +84,7 @@ export const login = (values, history) => dispatch => {
 		.post('https://potluck-backend.herokuapp.com/api/auth/login', values)
 		.then(({ data }) => {
 			localStorage.setItem("token", data.token)
+			dispatch(loginSuccess(data));
 			dispatch(displayUserInfo(data));
 			history.push("/dashboard");
 		})
@@ -86,11 +101,12 @@ export const register = user => dispatch => {
 			dispatch(updateUser(data));
 		})
 		.catch(error => {
+			console.log('nope')
 			console.error(error);
 		});
 };
 
 export const logout = () => dispatch =>{
 	localStorage.clear();
-	dispatch(success());
+	dispatch(logoutSuccess());
 };

@@ -1,6 +1,7 @@
 // Libraries
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // Components
 import logo from "assets/logo.png";
@@ -13,8 +14,15 @@ import * as actions from "states/users/usersActions";
 
 const Header = () => {
 	let logout = useDispatchThunk(actions.logout);
+	const currentUser = useSelector(state => state.currentUser);
+
+	useEffect(() => {
+		console.log(currentUser.authorized)
+	}, [currentUser.authorized])
+
 	return (
 		<header>
+			{console.log(currentUser.authorized)}
 			<img src={logo} alt='feast logo' />
 			<nav>
 				<ul>
@@ -24,12 +32,17 @@ const Header = () => {
 					<a href='https://hungry-carson-80f324.netlify.com/about.html'>
 						<li>Contact</li>
 					</a>
-					<NavLink
-						to='/'
-						className={`auth${localStorage.getItem("token") ? "success" : ""}`}
-						onClick={logout}>
-						<li>Sign Out</li>
-					</NavLink>
+					{currentUser.authorized && (
+						<NavLink
+							key={currentUser.authorized}
+							to='/'
+							className={`auth${
+								localStorage.getItem("token") ? "success" : ""
+							}`}
+							onClick={logout}>
+							<li>Sign Out</li>
+						</NavLink>
+					)}
 				</ul>
 			</nav>
 		</header>

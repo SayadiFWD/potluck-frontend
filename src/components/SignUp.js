@@ -3,7 +3,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Form, withFormik, Field } from "formik";
 import { connect } from "react-redux";
-// import axios from 'axios';
 import * as Yup from "yup";
 
 // actions
@@ -84,7 +83,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		register: (values, history) => dispatch(actions.register(values, history))
+		register: (values) => dispatch(actions.register(values))
 	};
 };
 
