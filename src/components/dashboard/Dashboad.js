@@ -10,11 +10,12 @@ const Dashboard = () => {
 
   const eventList = useSelector(state => state.eventsList);
   
-  let dispatch = useDispatch();
-    
-  useEffect(()=>{
-    dispatch(actions.getUserWithEvents())
-  },[dispatch]);
+  // let dispatch = useDispatch();
+
+  // useEffect(()=>{
+  //   dispatch(actions.displayUserInfo())
+  //   dispatch(actions.getUserWithEvents())
+  // },[dispatch]);
 
   return (
     <div>

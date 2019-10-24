@@ -14,7 +14,7 @@ export const success = () => {
 
 export const createEvent = id => dispatch => {
 	UseAxiosWithAuth()
-		.post(APIURL + `/api/events/${id}`)
+		.post(APIURL + `/api/events/1`)
 		.then(res => {
 			dispatch(success(res.data));
 		})

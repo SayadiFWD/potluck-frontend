@@ -51,18 +51,8 @@ const LoginForm = withFormik({
 		password: Yup.string().required
 	}),
 
-	handleSubmit(values, { setStatus, resetForm, props }) {
-		resetForm();
-		console.log(values)
+	handleSubmit(values, {props}) {
     props.login(values, props.history)
-		// axios
-		// 	.post("https://reqres.in/api/users/", values)
-		// 	.then(res => {
-		// 		setStatus(res.data);
-		// 		console.log(res);
-		// 		props.history.push("/dashboard");
-		// 	})
-		// 	.catch(err => console.log(err));
 	}
 })(Login);
 
@@ -81,4 +71,5 @@ const mapDispatchToProps = dispatch => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
+	
 )(LoginForm);

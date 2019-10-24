@@ -12,13 +12,16 @@ import CreatePotluckForm from "components/createpotluckform/CreatePotluck";
 import CreateFoodList from "components/createpotluckform/CreateFoodList";
 import InviteGuest from "components/createpotluckform/InviteGuest";
 
+// helpers 
+import {WithAuthCheck} from 'helpers/auth'
+
 function App() {
 	return (
 		<div className='App'>
 			<Header />
 			<Switch>
 				<Route path='/potluckform' component={CreatePotluckForm} />
-				<Route exact path='/dashboard' component={Dashboad} />
+				<Route exact path='/dashboard'  render={props => WithAuthCheck(Dashboad, props)} />
 				<Route path='/' component={TabsSL} />
 				<Route path='/foodform' component={CreateFoodList} />
 				<Route path='/inviteguests' component={InviteGuest} />

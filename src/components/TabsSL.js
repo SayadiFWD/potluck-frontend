@@ -45,8 +45,8 @@ const TabsSL = ({match}) => {
 			</ul>
 			<div>
 				<Switch>
-					<Route path={`${exact}signup`} render={() => <SignUpForm />} />
-					<Route path={`${exact}login`} render={() => <LoginForm />} />
+					<Route path={`${exact}signup`} component={SignUpForm} />
+					<Route path={`${exact}login`} component={LoginForm} />
 				</Switch>
 			</div>
 		</div>

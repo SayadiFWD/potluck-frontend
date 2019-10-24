@@ -65,11 +65,11 @@ export const getUserWithEvents = id => dispatch => {
 		});
 };
 
-export const login = (username, password, history) => dispatch => {
+export const login = (values, history) => dispatch => {
 	axiosWithAuth()
-		.post('https://potluck-backend.herokuapp.com/api/auth/login', { username, password })
+		.post('https://potluck-backend.herokuapp.com/api/auth/login', values)
 		.then(({ data }) => {
-			console.log('success')
+			localStorage.setItem("token", data.token)
 			dispatch(displayUserInfo(data));
 			history.push("/dashboard");
 		})
