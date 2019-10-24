@@ -61,7 +61,9 @@ const CreatePotluckForm = withFormik({
         event_name: values.event_name,
         dates: values.dates,
         time: values.time,
-        address: values.address
+        address: values.address,
+        id: 35
+        //id: from login -> dashboard 
       }
     })
   }

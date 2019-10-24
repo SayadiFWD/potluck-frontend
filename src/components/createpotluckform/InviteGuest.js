@@ -47,7 +47,10 @@ const InviteGuestForm = withFormik({
   },
 
   handleSubmit(values, { props }) {
-    const eventData = {...props.history.location.state, guests: values.guests, users_id: 90, id: 789} //! hard coded for now
+    const users_id = props.history.location.state.id
+    const eventData = {...props.history.location.state, guests: values.guests, users_id: users_id}
+    console.log('users_id', users_id)
+    console.log('eventData', eventData)
     axios
       .post("https://potluck-backend.herokuapp.com/api/events", eventData) //! 400 error
       .then(res => {
