@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 // Actions
 // import * as actions from "states/users/usersActions";
 
+// Actions
+// import * as actions from "states/users/usersActions";
+
 const Dashboard = () => {
 	const currentUser = useSelector(state => state.currentUser);
 

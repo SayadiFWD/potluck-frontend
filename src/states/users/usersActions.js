@@ -17,13 +17,13 @@ export const success = () => {
 	};
 };
 
+
 const logoutSuccess = token => {
 	return{
 		type: types.LOG_OUT_USER,
 		payload: token,
 	};
 };
-
 const loginSuccess = token => {
 	return{
 		type: types.LOGIN_USER,
