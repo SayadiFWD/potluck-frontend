@@ -18,10 +18,10 @@ const Header = () => {
 			<img src={logo} alt='feast logo' />
 			<nav>
 				<ul>
-					<a href='#'>
+					<a href='https://hungry-carson-80f324.netlify.com/index.html'>
 						<li>About</li>
 					</a>
-					<a href='#'>
+					<a href='https://hungry-carson-80f324.netlify.com/about.html'>
 						<li>Contact</li>
 					</a>
 					<NavLink
