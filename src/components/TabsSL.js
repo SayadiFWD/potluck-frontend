@@ -6,12 +6,9 @@ import { NavLink, Route, Switch } from "react-router-dom";
 import SignUpForm from "components/SignUp";
 import LoginForm from "components/Login";
 
-const TabsSL = ({match}) => {
+const TabsSL = () => {
 
-	
 	const [clicked, setClicked] = useState("");
-
-	const exact = match.url;
 
 	const clickHandler = () => {
 		setClicked(true);

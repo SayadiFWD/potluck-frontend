@@ -1,5 +1,5 @@
 // Libraries
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,7 @@ const Header = () => {
 			<nav>
 				<ul>
 				{currentUser.authorized && (
-						<NavLink key={currentUser.authorized} to='/dashboard'>
+						<NavLink to='/dashboard'>
 							<li>Dashboard</li>
 						</NavLink>
 					)}
@@ -33,7 +33,7 @@ const Header = () => {
 						<li>Contact</li>
 					</a>
 					{currentUser.authorized && (
-						<NavLink key={currentUser.authorized} to='/' onClick={logout}>
+						<NavLink to='/' onClick={logout}>
 							<li>Sign Out</li>
 						</NavLink>
 					)}

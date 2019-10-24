@@ -2,7 +2,7 @@
 import * as types from "states/events/eventsTypes";
 
 // // Helpers
-import { UseAxiosWithAuth } from "../../helpers/auth";
+import { axiosWithAuth } from "helpers/auth";
 
 const APIURL = "https://potluck-backend.herokuapp.com/";
 
@@ -12,9 +12,16 @@ export const success = () => {
 	};
 };
 
+export const eventInfo = data => {
+	return{
+		type: types.GET_EVENT_INFO,
+		payload: data,
+	};
+};
+
 export const createEvent = id => dispatch => {
-	UseAxiosWithAuth()
-		.post(APIURL + `/api/events/1`)
+	axiosWithAuth()
+		.post(APIURL + `/api/events/${id}`)
 		.then(res => {
 			dispatch(success(res.data));
 		})
@@ -24,7 +31,7 @@ export const createEvent = id => dispatch => {
 };
 
 export const editEvent = id => dispatch => {
-	UseAxiosWithAuth()
+	axiosWithAuth()
 		.put(APIURL + `/api/events/${id}`)
 		.then(res => {
 			dispatch(success(res.data));
@@ -35,7 +42,7 @@ export const editEvent = id => dispatch => {
 };
 
 export const deleteEvent = id => dispatch => {
-	UseAxiosWithAuth()
+	axiosWithAuth()
 		.delete(APIURL + `/api/events/${id}`)
 		.then(res => {
 			dispatch(success(res.data));
@@ -44,3 +51,14 @@ export const deleteEvent = id => dispatch => {
 			console.log(err);
 		});
 };
+
+export const getEvent = id => dispatch => {
+	axiosWithAuth()
+	.get(APIURL + `/api/events/${id}`)
+	.then(res => {
+		dispatch(eventInfo(res.data));
+	})
+	.catch(err => {
+		console.log(err);
+	});
+}
