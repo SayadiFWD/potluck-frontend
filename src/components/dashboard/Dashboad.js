@@ -1,9 +1,9 @@
 // Libraries
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 // Actions
-import * as actions from "states/users/usersActions";
+// import * as actions from "states/users/usersActions";
 
 const Dashboard = () => {
 	const currentUser = useSelector(state => state.currentUser);
