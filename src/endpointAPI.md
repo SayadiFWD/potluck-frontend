@@ -1,7 +1,5 @@
 # potluck-backend
 
-https://potluck-backend.herokuapp.com/
-
 ==================== LOGIN && REGISTER ENDPOINTS START HERE =======================
 
 **Register a user**
@@ -12,17 +10,17 @@ http method: **[POST]**
 **Body**
 
 | name      | type   | required | description                         |  
-| --------  | ------ | ------- | ----------------------------------  |
+| --------  | ------ | ------- | ----------------------------------   |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be <= 255 char                 |
+| password  | String | Yes      |  Must be <= 255 char                |    
+| email     | String | No       | Must be unique/ Must be <= 255 char |    
 
 **Example**
 ```
 {
     username: 'Bobby',
     password: 'password',
-    email: 'anthony@gmail.com'
+    email: 'b@b'
 }
 ```
 
@@ -38,18 +36,16 @@ http method: **[POST]**
 
 **Body**
 
-| name     | type   | required | description                       | 
-| -------- | ------ | -------- | --------------------------------- |
+| name     | type   | required | description                         | 
+| -------- | ------ | -------- | ---------------------------------   |
 | username | String | Yes      | Must be unique/ Must be >= 255 char |
 | password | String | Yes      | Must be <= 255 char                 |
-| email    | String | Yes      | Must be <= 255 char                 |
 
 **Example**
 ```
 {
     username: 'Bobby',
     password: 'password'
-    email: 'bobby@bobby'
 }
 ```
 
@@ -78,17 +74,16 @@ http method: **[GET]**
 **Body**
 
 | name      | type   | required | description                         |  
-| --------  | ------ | ------- | ----------------------------------  |
+| --------  | ------ | ------- | ----------------------------------   |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be <= 255 char                 |
+| password  | String | Yes      | Must be unique/ Must be <= 255 char |    | email     | String | No       | Must be unique/ Must be <= 255 char |        
 
 **Example**
 ```
 {
     username: 'Abby',
     password: 'password',
-    email: 'Abby@gmail.com'
+    email: 'a@a'
 }
 ```
 
@@ -104,17 +99,16 @@ http method: **[GET]**
 **Body**
 
 | name      | type   | required | description                         |  
-| --------  | ------ | ------- | ----------------------------------  |
+| --------  | ------ | ------- | ----------------------------------   |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be <= 255 char                 |
+| password  | String | Yes      | Must be unique/ Must be <= 255 char |    | email     | String | No       | Must be unique/ Must be <= 255 char |        
 
 **Example**
 ```
 {
     username: 'Alex',
     password: 'password',
-    email: 'Alex123@gmail.com'
+    email: 'a@a'
 }
 ```
 
@@ -130,17 +124,16 @@ http method: **[PUT]**
 **Body**
 
 | name      | type   | required | description                         |  
-| --------  | ------ | ------- | ----------------------------------  |
+| --------  | ------ | ------- | ----------------------------------   |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be <= 255 char                 |
+| password  | String | Yes      | Must be unique/ Must be <= 255 char |    | email     | String | No       | Must be unique/ Must be <= 255 char |        
 
 **Example**
 ```
 {
     username: 'Abby',
     password: 'password',
-    email: 'Abby@gmail.com'
+    email: 'a@a'
 }
 ```
 
@@ -156,17 +149,16 @@ http method: **[DELETE]**
 **Body**
 
 | name      | type   | required | description                         |  
-| --------  | ------ | ------- | ----------------------------------  |
+| --------  | ------ | ------- | ----------------------------------   |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be <= 255 char                 |
+| password  | String | Yes      | Must be unique/ Must be <= 255 char |    | email     | String | No       | Must be unique/ Must be <= 255 char |         
 
 **Example**
 ```
 {
     username: 'Abby',
     password: 'password',
-    email: 'Abby@gmail.com'
+    email: 'a@a'
 }
 ```
 
@@ -184,8 +176,7 @@ http method: **[GET]**
 | name      | type   | required | description                         |  
 | --------  | ------ | -------  |  ------------------------------     |
 | username  | String | Yes      | Must be unique/ Must be <= 255 char |
-| password  | String | Yes      | Must be unique/ Must be <= 255 char |            
-| email     | String | Yes      | Must be >= 255 char                 |
+| password  | String | Yes      | Must be unique/ Must be <= 255 char |    | email     | String | No       | Must be unique/ Must be <= 255 char |         
 
 
 | name       | type    | required | description 
@@ -194,7 +185,6 @@ http method: **[GET]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
 | guests     | String  | No       | Must be unique/ Must be <= 255 char  |
 | users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
@@ -205,9 +195,9 @@ http method: **[GET]**
 
 {
   "id": 1,
-  "username": Noah M,
+  "username": Noah W,
   "password": password,
-  "email": noah@gmail.com,
+   "email": 'a@a'
   "events": [
     {
       "id": 9,
@@ -215,7 +205,6 @@ http method: **[GET]**
       "time": "5:00pm",
       "location": "NYC Center Park",
       "dates": "9-18-19",
-      "food_items": "buggers, pasta, pizza",
       "guests": "Bob, steve, Smith, Sam",
       "users_id": 1
     }
@@ -242,9 +231,8 @@ http method: **[POST]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
-| guests     | String  | No       | Must be unique/ Must be <= 255 char
-| users_id   | String  | NO       | Must be unique/ Must be <= 255 char
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
 
 
@@ -256,7 +244,6 @@ http method: **[POST]**
     "time": "5:00pm",
     "location": "NYC Center Park",
     "dates": "9-18-19",
-    "food_items": "buggers, pasta, pizza",
     "guests": "Bob, steve, Smith, Sam",
     "users_id": 1
 }
@@ -280,9 +267,8 @@ http method: **[GET]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
-| guests     | String  | No       | Must be unique/ Must be <= 255 char
-| users_id   | String  | NO       | Must be unique/ Must be <= 255 char
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
 
 
@@ -294,7 +280,6 @@ http method: **[GET]**
     "time": "5:00pm",
     "location": "NYC Center Park",
     "dates": "9-18-19",
-    "food_items": "buggers, pasta, pizza",
     "guests": "Bob, steve, Smith, Sam",
     "users_id": 1
 }
@@ -318,9 +303,8 @@ http method: **[GET]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
-| guests     | String  | No       | Must be unique/ Must be <= 255 char
-| users_id   | String  | NO       | Must be unique/ Must be <= 255 char
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
 
 
@@ -332,7 +316,6 @@ http method: **[GET]**
     "time": "5:00pm",
     "location": "NYC Center Park",
     "dates": "9-18-19",
-    "food_items": "buggers, pasta, pizza",
     "guests": "Bob, steve, Smith, Sam",
     "users_id": 1
 }
@@ -356,9 +339,8 @@ http method: **[PUT]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
-| guests     | String  | No       | Must be unique/ Must be <= 255 char
-| users_id   | String  | NO       | Must be unique/ Must be <= 255 char
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
 
 
@@ -370,7 +352,6 @@ http method: **[PUT]**
     "time": "5:00pm",
     "location": "NYC Center Park",
     "dates": "9-18-19",
-    "food_items": "buggers, pasta, pizza",
     "guests": "Bob, steve, Smith, Sam",
     "users_id": 1
 }
@@ -394,9 +375,8 @@ http method: **[DELETE]**
 | time       | String  | No       | Must be unique/ Must be <= 255 char  |
 | location   | String  | No       | Must be unique/ Must be <= 255 char  |
 | dates      | String  | No       | Must be unique/ Must be <= 255 char  |
-| food_items | String  | No       | Must be unique/ Must be <= 255 char  |
-| guests     | String  | No       | Must be unique/ Must be <= 255 char
-| users_id   | String  | NO       | Must be unique/ Must be <= 255 char
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
 
 
 
@@ -408,7 +388,6 @@ http method: **[DELETE]**
     "time": "5:00pm",
     "location": "NYC Center Park",
     "dates": "9-18-19",
-    "food_items": "buggers, pasta, pizza",
     "guests": "Bob, steve, Smith, Sam",
     "users_id": 1
 }
@@ -416,3 +395,203 @@ http method: **[DELETE]**
 ```
 
 **Response** 200 (event deleted successfully)
+
+
+========================== FOODS START HERE =============================
+
+**POST foods** 
+method url: **/api/foods**
+
+http method: **[POST]**
+
+**Body**
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | ---------------------         |
+| food_item  | String  | Yes      |  Must be <= 255 char          |
+| events_id  | integer | Yes      |  Must be <= 255 char          |
+| completed  | boolean | Yes      |  No requirement in this felid | 
+
+**Example**
+```
+{
+	"food_item": "pizza3",
+	"events_id": 1,
+  "completed": true 
+}
+
+```
+
+**Response** 200 (events was created successfully)
+
+=======================================================
+
+**GET foods** 
+method url: **/api/foods**
+
+http method: **[GET]**
+
+**Body**
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | ---------------------------   |
+| food_item  | String  | Yes      |  Must be <= 255 char          |
+| events_id  | integer | Yes      |  Must be <= 255 char          |
+| completed  | boolean | Yes      |  No requirement in this felid | 
+
+**Example**
+```
+{
+	"food_item": "pizza3",
+	"events_id": 1, 
+  "completed": true 
+}
+
+```
+
+**Response** 200 
+
+=======================================================
+
+**PUT foods** 
+method url: **/api/foods/:id**
+
+http method: **[PUT]**
+
+**Body**
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | --------------------------    |
+| food_item  | String  | Yes      |  Must be <= 255 char          |
+| events_id  | integer | Yes      |  Must be <= 255 char          |
+| completed  | boolean | Yes      |  No requirement in this felid | 
+
+**Example**
+```
+{
+	"food_item": "pizza3",
+	"events_id": 1
+  "completed": false 
+}
+
+```
+
+**Response** 200 
+
+=======================================================
+
+**DELETE foods** 
+method url: **/api/foods/:id**
+
+http method: **[DELETE]**
+
+**Body**
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | ---------------------------   |
+| food_item  | String  | Yes      |  Must be <= 255 char          |
+| events_id  | integer | Yes      |  Must be <= 255 char          |
+| completed  | boolean | Yes      |  No requirement in this felid | 
+
+**Example**
+```
+{
+	"food_item": "pizza3",
+	"events_id": 1
+  "completed": true 
+}
+
+```
+
+**Response** 200 (event deleted successfully )
+
+===============================================
+
+**GET a type of food with events!!** 
+method url: **/api/foods/:id/events**
+
+http method: **[GET]**
+
+**Body**         
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | ------------------------------------ |
+| event_name | String  | No       | Must be unique/ Must be <= 255 char  |
+| time       | String  | No       | Must be unique/ Must be <= 255 char  |
+| location   | String  | No       | Must be unique/ Must be <= 255 char  |
+| dates      | String  | No       | Must be unique/ Must be <= 255 char  |
+| guests     | String  | No       | Must be unique/ Must be <= 255 char  |
+| users_id   | String  | NO       | Must be unique/ Must be <= 255 char  |
+
+
+| name       | type    | required | description 
+| ---------- | ------  | -------- | ---------------------------   |
+| food_item  | String  | Yes      |  Must be <= 255 char          |
+| events_id  | integer | Yes      |  Must be <= 255 char          |
+| completed  | boolean | Yes      |  No requirement in this felid |              
+
+**Example**
+```
+
+{
+  "id": 1,
+  "event_name": "Food at NYC park",
+  "time": "5:00pm",
+  "location": "NYC Center Park",
+  "dates": "9-18-19",
+  "guests": "Bob, Steve, Smith, Sam",
+  "users_id": 1,
+  "food": [
+    {
+      "id": 1,
+      "food_item": "pizza",
+      "events_id": 1, 
+      "completed": false
+    }
+  ]
+}
+
+
+```
+
+**Response** 200 
+
+1) Design State of the App (what slices of state is needed)
+
+createpotluck: input data
+createfoodlistform: input data, list of foods
+inviteguest: input data, list of guests
+
+first two forms will carry on and add state 
+to the next form
+last form will have the action of submit to post
+
+dashboard: potlucklist => grab all events => filter by id
+=> for nearest event filter eventlist feed
+
+same with list function => will find event
+and insert props into 
+
+event page: selected event
+selected event guestlist
+selected event foodlist
+selected event info
+
+login: input data
+
+signup: input data
+
+
+
+2) Design the types of actions the state might suffer
+
+CurrentUser: [create, edit, delete] user 
+EventsList: [create, edit, delete]
+
+3) Create one reducer function per slice of state
+4) Combine all reducers
+5) use create store to create redux store
+6) inject the redux store into the app
+7) design action creators
+8) export
+9) plug
