@@ -21,10 +21,14 @@ const Dashboard = props => {
 		getUserInfo(localStorage.getItem("id"))
 	}, [getUserInfo]);
 
+	const move = e => {
+		props.history('/potluckform')
+	}
+
 	return (
 		<div>
 			<p>{JSON.stringify(currentUser)}</p>
-			<button onClick={()=>{props.hisotry('/potluckform')}}>Create Event</button>
+			<button onClick={()=>{move()}}>Create Event</button>
 			<PotluckCard/>
 			<PotluckList/>
 		</div>

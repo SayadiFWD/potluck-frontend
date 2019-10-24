@@ -1,6 +1,6 @@
 //Libraries
 import React from "react";
-import { Route, Switch} from "react-router-dom";
+import { Route, Switch, Redirect} from "react-router-dom";
 import "./styles/styles.scss";
 
 //Components
@@ -13,7 +13,6 @@ import CreateFoodList from "components/createpotluckform/CreateFoodList";
 import InviteGuest from "components/createpotluckform/InviteGuest";
 
 // helpers 
-// import {WithAuthCheck} from 'helpers/auth';
 import PrivateRoute from 'helpers/PrivateRoute'
 
 function App() {
@@ -22,11 +21,13 @@ function App() {
 			<Header />
 			<Switch>
 				<Route path='/landing' component={TabsSL} />
-				<PrivateRoute exact path='/'  component={Dashboard}/>
+				<PrivateRoute exact path='/dashboard'  component={Dashboard}/>
 				<PrivateRoute exact path='/potluckform'  component={CreatePotluckForm}/>
 				<PrivateRoute exact path='/foodform'  component={CreateFoodList}/>
 				<PrivateRoute exact path='/inviteguests'  component={InviteGuest}/>
+				<Redirect from='/' to='/dashboard' />
 			</Switch>
+	
 			<Footer />
 		</div>
 	);
