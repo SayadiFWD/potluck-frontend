@@ -67,8 +67,9 @@ export const getUserWithEvents = id => dispatch => {
 
 export const login = (username, password, history) => dispatch => {
 	axiosWithAuth()
-		.post("/auth/login", { username, password })
+		.post('https://potluck-backend.herokuapp.com/api/auth/login', { username, password })
 		.then(({ data }) => {
+			console.log('success')
 			dispatch(displayUserInfo(data));
 			history.push("/dashboard");
 		})
@@ -79,8 +80,9 @@ export const login = (username, password, history) => dispatch => {
 
 export const register = user => dispatch => {
 	axiosWithAuth()
-		.post("/auth/register", user)
+		.post("https://potluck-backend.herokuapp.com/api/auth/register", user)
 		.then(({ data }) => {
+			console.log('success')
 			dispatch(updateUser(data));
 		})
 		.catch(error => {
