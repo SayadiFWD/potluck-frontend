@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // components
 import EventPage from "components/events/EventPage";
 
-const PotluckCard = () => {
+const PotluckCard = props => {
 	const currentUser = useSelector(state => state.currentUser);
 
 	const dummyinfo = [
@@ -26,9 +26,12 @@ const PotluckCard = () => {
 			{currentUser.events === []
 				? currentUser.events.filter((
 						event //logical conditions needed
+						// grouperArray.sort(function (a, b) {
+						// 	return a.gsize - b.gsize || a.glow - b.glow;
+						// });
 				  ) => <EventPage eventInfo={event} />)
 				: `No Events`}
-			<EventPage eventInfo={dummyinfo} />
+			<EventPage eventInfo={dummyinfo}/>
 		</div>
 	);
 };

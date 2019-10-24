@@ -1,6 +1,5 @@
 // Libraries
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 // Components
 import EventFoodList from "components/events/EventFoodList";
@@ -14,23 +13,22 @@ import * as actions from "states/events/eventsActions";
 import { useDispatchThunk } from "helpers/useDispatchThunk";
 
 const EventPage = props => {
-	const currentEvent = useSelector(state => state.currentEvent);
 
-	const getEventInfo = useDispatchThunk(actions.getEvent)
+	const getEventInfo = useDispatchThunk(actions.getEvent);
 
-	useEffect(()=>{
-		if (props.match.params.id){
-		 getEventInfo(props.match.params.id) }
-		 return props.eventInfo
-	},[getEventInfo, props.match.params.id, props])
-
-	const creatingProps = currentEvent.id ? currentEvent : props.eventInfo;
+	useEffect(() => {
+		if (props.length > 1) {
+			getEventInfo(props.match.params.id);
+		} else {
+			actions.updateEvent(props.eventInfo);
+		}
+	}, [getEventInfo, props]);
 
 	return (
 		<div>
-			<EventFoodList event={creatingProps}/>
-			<EventGuestList event={creatingProps}/>
-			<PotluckInfo event={creatingProps}/>
+			<EventFoodList />
+			<EventGuestList />
+			<PotluckInfo />
 		</div>
 	);
 };

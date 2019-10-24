@@ -1,5 +1,6 @@
 // Libraries
 import React from 'react';
+import { useSelector } from "react-redux";
 
 // Components 
 // import GuestCard from 'components/events/GuestCard';

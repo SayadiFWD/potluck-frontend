@@ -1,6 +1,7 @@
 // Libraries
 import React from "react";
 import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 export const PotluckInfo = ({props}) => {
 	return (
@@ -13,16 +14,3 @@ export const PotluckInfo = ({props}) => {
 		</div>
 	);
 };
-
-
-const mapStateToProps = state => {
-	return {};
-};
-const mapDispatchToProps = dispatch => {
-	return {};
-};
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(PotluckInfo);
