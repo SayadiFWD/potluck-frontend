@@ -38,9 +38,8 @@ const updateUser = user => ({
 
 export const createUsers = id => dispatch => {
 	axiosWithAuth()
-		.put(`/api/users/${id}`)
+		.post(`/api/users/${id}`)
 		.then(res => {
-			console.log('user id', res)
 			dispatch(success(res.data));
 		})
 		.catch(err => {

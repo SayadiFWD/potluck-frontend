@@ -13,18 +13,18 @@ export const success = () => {
 };
 
 export const eventInfo = data => {
-	return{
+	return {
 		type: types.GET_EVENTS_INFO,
-		payload: data,
+		payload: data
 	};
 };
 
 export const updateEvent = props => {
-	return{
+	return {
 		type: types.UPDATE_CURRENT_EVENT,
-		payload: props,
-	}
-}
+		payload: props
+	};
+};
 
 export const createEvent = id => dispatch => {
 	axiosWithAuth()
@@ -59,78 +59,171 @@ export const deleteEvent = id => dispatch => {
 		});
 };
 
-export const getEvent = id => dispatch => {
+export const getEvents = id => dispatch => {
 	axiosWithAuth()
-	.get(APIURL + `/api/foods/:${id}/events`)
-	.then(res => {
-		dispatch(eventInfo(res.data));
-	})
-	.catch(err => {
-		console.log(err);
-	});
-}
+		.get(APIURL + `/api/foods/:${id}/events`)
+		.then(res => {
+			dispatch(eventInfo(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
 
 // CLOSEST REDUCER
-const updateClosestEvent = event =>{
-	return{
+export const updateClosestEvent = event => {
+	return {
 		type: types.UPDATE_CLOSEST_EVENT,
-		payload: event,
+		payload: event
 	};
-} 
-
+};
 
 export const closestFoodAdd = newFood => dispatch => {
-
-}
-export const closestFoodEdit = food => dispatch => {
-	
-}
-export const closestFoodDelete = food => dispatch => {
-	
-}
-export const closestGuestAdd = newFood => dispatch => {
-	
-}
-export const closestGuestDelete = newFood => dispatch => {
-	
-}
-export const closestInfoEdit = newFood => dispatch => {
-	
-}
-export const closestFoodGuestPick = newFood => dispatch => {
-	
-}
+	axiosWithAuth()
+		.post(`/api/foods`, newFood)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestFoodEdit = (food, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/foods/${eventID}`, food)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestFoodDelete = (food, eventID) => dispatch => {
+	axiosWithAuth()
+		.delete(`/api/foods/${eventID}`, food)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestGuestAdd = (newGuest, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, newGuest)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestGuestDelete = (guest, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, guest)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestInfoEdit = (info, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, info)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const closestFoodGuestPick = (pickedFood, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/food/${eventID}`, pickedFood)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
 export const closestGuestConfirm = () => dispatch => {
-	console.log(`confirmed!`)
-}
+	console.log(`confirmed!`);
+};
 
 //SELECT REDUCER'
 
-export const getSelectEvent = data => dispatch => {
-
-}
-
 export const selectFoodAdd = newFood => dispatch => {
-
-}
-export const selectFoodEdit = food => dispatch => {
-	
-}
-export const selectFoodDelete = food => dispatch => {
-	
-}
-export const selectGuestAdd = newFood => dispatch => {
-	
-}
-export const selectGuestDelete = newFood => dispatch => {
-	
-}
-export const selectInfoEdit = newFood => dispatch => {
-	
-}
-export const selectFoodGuestPick = newFood => dispatch => {
-	
-}
+	axiosWithAuth()
+		.post(`/api/foods`, newFood)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectFoodEdit = (food, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/foods/${eventID}`, food)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectFoodDelete = (food, eventID) => dispatch => {
+	axiosWithAuth()
+		.delete(`/api/foods/${eventID}`, food)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectGuestAdd = (newGuest, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, newGuest)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectGuestDelete = (guest, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, guest)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectInfoEdit = (info, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/events/${eventID}`, info)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+export const selectFoodGuestPick = (pickedFood, eventID) => dispatch => {
+	axiosWithAuth()
+		.put(`/api/food/${eventID}`, pickedFood)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
 export const selectGuestConfirm = () => dispatch => {
-	console.log(`confirmed!`)
-}
+	console.log(`confirmed!`);
+};
