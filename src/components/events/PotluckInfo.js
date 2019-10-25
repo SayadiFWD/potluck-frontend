@@ -1,23 +1,78 @@
 // Libraries
-import React from "react";
-// import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
+// Actions
+import * as actions from "states/events/eventsActions";
+
+// helpers
+import { useDispatchThunk } from "helpers/useDispatchThunk";
 
 export const PotluckInfo = () => {
-	
+	const owner = useSelector(state => state.isOwner);
+	const selectEvent = useSelector(state => state.closestEvent);
+	const editEvent = useDispatchThunk(actions.eventInfoEdit)
 
-	// if a person id matches the event ID then dont show submit button
-	// if it doesnt then show submit button
-	// eventfoodList needs to be a form
-	// add edit delete onclick a box appears for a person with auth
+	const [values, setValues] = useState({
+		event_name: `${selectEvent.event_name}`,
+		dates: `${selectEvent.dates}`,
+		time: `${selectEvent.time}`,
+		location: `${selectEvent.location}`
+	});
+
+	const onSubmit = event => {
+		event.preventDefault();
+		editEvent(values, selectEvent.id)
+	};
+
+	const valueChange = event => {
+		setValues({ ...values, [event.target.name]: event.target.value });
+	};
 
 	return (
 		<div>
-      {/* <p>Event Name: {currentEvent.event_name}</p>
-      <p>Date: {currentEvent.dates}</p>
-      <p>Time: {currentEvent.time}</p>
-      <p>Location: {currentEvent.location}</p> */}
-
+			{!owner && (
+				<div>
+					<p>Event Name: {selectEvent.event_name}</p>
+					<p>Date: {selectEvent.dates}</p>
+					<p>Time: {selectEvent.time}</p>
+					<p>Location: {selectEvent.location}</p>
+				</div>
+			)}
+			{owner && (
+				<form onSubmit={onSubmit}>
+					<h1>Event</h1>
+					Event Name:{" "}
+					<input
+						type='text'
+						name='event_name'
+						onChange={valueChange}
+						value={values.event_name}
+					/>
+					Date:{" "}
+					<input
+						type='date'
+						name='dates'
+						onChange={valueChange}
+						value={values.dates}
+					/>
+					Time:{" "}
+					<input
+						type='time'
+						name='time'
+						onChange={valueChange}
+						value={values.time}
+					/>
+					Location:{" "}
+					<input
+						type='text'
+						name='location'
+						onChange={valueChange}
+						value={values.location}
+					/>
+					<button type='submit'>Edit</button>
+				</form>
+			)}
 		</div>
 	);
 };

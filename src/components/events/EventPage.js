@@ -18,18 +18,18 @@ const EventPage = props => {
 	const closestEvent = useSelector(state => state.closestEvent);
 	const owner = useSelector(state => state.isOwner);
 
-	const [getEventInfo, setClosestEvent, matchID] = useDispatchThunk([
+	const [getEventInfo, setSelectEvent, matchID] = useDispatchThunk([
 		actions.getEvents,
-		actions.updateClosestEvent,
+		actions.updateSelectEvent,
 		compareIDs
 	]);
 
 	useEffect(() => {
 		matchID();
 		props.history
-			? getEventInfo(props.match.params.id)
-			: setClosestEvent(closestEvent);
-	}, [getEventInfo, setClosestEvent, props, closestEvent, matchID]);
+			? setSelectEvent(getEventInfo(props.match.params.id))
+			: setSelectEvent(closestEvent);
+	}, [getEventInfo, setSelectEvent, props, closestEvent, matchID]);
 
 	return (
 		<div>

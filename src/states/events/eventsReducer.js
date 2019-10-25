@@ -29,3 +29,13 @@ export const selectEventReducer = (event = intialcurrentEvent, action) => {
 			return event;
 	}
 };
+
+// const initialuseEvent = {};
+// export const inUseCurrentEventReducer = (event = initialuseEvent, action) => {
+// 	switch (action.type) {
+// 		case types.UPDATE_INUSE_EVENT:
+// 			return action.payload;
+// 		default:
+// 			return event;
+// 	}
+// };
