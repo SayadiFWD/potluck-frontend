@@ -19,10 +19,6 @@ function App() {
 	return (
 		<div className='App'>
 			<Header />
-			{/* <Route path='/foodform' component={CreateFoodListForm} />
-			<Route path='/potluckform' component={CreatePotluckForm} />
-			<Route path='/inviteguests' component={InviteGuestForm} /> */}
-
 			<Switch>
 				<Route path='/potluckform' component={CreatePotluckForm} />
 				<Route exact path='/dashboard'  render={props => WithAuthCheck(Dashboad, props)} />
