@@ -26,7 +26,6 @@
 .box {
   width: 375px;
   margin: 0 auto;
-  background-color: $dark-purple;
   padding: 40px 0 50px 0;
 }
 
@@ -50,8 +49,9 @@
   padding-top: 30px;
 }
 
-.control {
+.control.input {
   font-size: 1.2rem;
+  width: 350px;
 }
 
 .tabs.is-toggle li.is-active a {
