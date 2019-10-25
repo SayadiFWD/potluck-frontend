@@ -82,6 +82,27 @@ input.control {
   align-self: center;
 }
 
+.invisible {
+  display: none;
+}
+
+.email-link {
+  font-size: 1.4 rem;
+  color: white;
+  border: 1px solid $light-grey;
+  background-color: $yellow;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.event-link {
+  display: flex;
+  align-items: baseline;
+  span {
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+}
 
 
 
