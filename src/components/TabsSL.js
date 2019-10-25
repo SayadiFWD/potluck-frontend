@@ -7,7 +7,7 @@ import SignUpForm from "components/SignUp";
 import LoginForm from "components/Login";
 
 const TabsSL = () => {
-
+//fix tab switcher
 	const [clicked, setClicked] = useState("");
 
 	const clickHandler = () => {
