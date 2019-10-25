@@ -1,40 +1,47 @@
 import React from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
 import axios from 'axios';
-import { TextField } from 'formik-material-ui';
-import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
-import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
 
 const InviteGuest = ({ values }) => {
 	return (
-    <Form>
-      <FieldArray
-        name="guests"
-        render={arrayHelpers => (
-          <div>
-            {values.guests && values.guests.length > 0 ? (
-              values.guests.map((guest, index) => (
-                <div key={index}>
-                  <Field 
-                    name={`guests.${index}`}
-                    component={TextField}
-                  />
-                  <RemoveCircleOutline onClick={() => arrayHelpers.remove(index)}/>
-                  <AddCircleOutline onClick={() => arrayHelpers.insert(index, "")}/>
-                </div>
-              ))
-            ) : (
-              <button type="button" onClick={() => arrayHelpers.push("")}>
-                Add a guest's email
-              </button>
-            )}
-            <div>
-              <button type="submit" className="button is-link">Submit</button>     
+    <div>
+      <h1 className='title is-3'>Add the emails of people you would like to invite.</h1>
+      <Form>
+        <FieldArray
+          className='inviteform'
+          name="guests"
+          render={arrayHelpers => (
+            <div className='form-inner' >
+              {values.guests && values.guests.length > 0 ? (
+                values.guests.map((guest, index) => (
+                  <div key={index}>
+                    <Field 
+                      className='control invite-input'
+                      name={`guests.${index}`}
+                      placeholder='Email'
+                    />
+                    <div className='plus-minus-buttons'>
+                      <div onClick={() => arrayHelpers.insert(index, "")}>
+                        <i class="far fa-plus-square" ></i></div>
+                      <div onClick={() => arrayHelpers.remove(index)}>
+                        <i class="far fa-minus-square" ></i>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <button type="button" className='button add' onClick={() => arrayHelpers.push("")}>
+                  Add a guest's email
+                </button>
+              )}
+              <div>
+                <button type="submit" className="button next">Submit</button>     
+              </div>
             </div>
-          </div>
-        )}
-      />
-    </Form>
+          )}
+        />
+      </Form>
+    </div>
   );
 };
 

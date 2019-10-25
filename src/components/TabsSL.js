@@ -14,6 +14,7 @@ const TabsSL = () => {
 		setClicked(true);
 	};
 
+
 	const className = clicked ? "is-active" : "";
 
 	return (
