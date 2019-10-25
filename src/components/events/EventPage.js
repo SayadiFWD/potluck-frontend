@@ -22,6 +22,7 @@ const EventPage = props => {
 	useEffect(() => {
 		// if props exist then getEventInfo(props.match.params.id) then update selectEvent
 		//otherwise update info with the same state
+		// need a delete event
 
 	}, []);
 

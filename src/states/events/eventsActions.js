@@ -14,7 +14,7 @@ export const success = () => {
 
 export const eventInfo = data => {
 	return{
-		type: types.GET_EVENT_INFO,
+		type: types.GET_EVENTS_INFO,
 		payload: data,
 	};
 };
@@ -70,3 +70,67 @@ export const getEvent = id => dispatch => {
 	});
 }
 
+// CLOSEST REDUCER
+const updateClosestEvent = event =>{
+	return{
+		type: types.UPDATE_CLOSEST_EVENT,
+		payload: event,
+	};
+} 
+
+
+export const closestFoodAdd = newFood => dispatch => {
+
+}
+export const closestFoodEdit = food => dispatch => {
+	
+}
+export const closestFoodDelete = food => dispatch => {
+	
+}
+export const closestGuestAdd = newFood => dispatch => {
+	
+}
+export const closestGuestDelete = newFood => dispatch => {
+	
+}
+export const closestInfoEdit = newFood => dispatch => {
+	
+}
+export const closestFoodGuestPick = newFood => dispatch => {
+	
+}
+export const closestGuestConfirm = () => dispatch => {
+	console.log(`confirmed!`)
+}
+
+//SELECT REDUCER'
+
+export const getSelectEvent = data => dispatch => {
+
+}
+
+export const selectFoodAdd = newFood => dispatch => {
+
+}
+export const selectFoodEdit = food => dispatch => {
+	
+}
+export const selectFoodDelete = food => dispatch => {
+	
+}
+export const selectGuestAdd = newFood => dispatch => {
+	
+}
+export const selectGuestDelete = newFood => dispatch => {
+	
+}
+export const selectInfoEdit = newFood => dispatch => {
+	
+}
+export const selectFoodGuestPick = newFood => dispatch => {
+	
+}
+export const selectGuestConfirm = () => dispatch => {
+	console.log(`confirmed!`)
+}
