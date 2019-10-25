@@ -3,12 +3,14 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 // Reducers
-import { eventsReducers } from "states/events/eventsReducer";
+import { eventsReducers, closestEventReducer, selectEventReducer } from "states/events/eventsReducer";
 import { userReducers } from "states/users/usersReducer";
 
 const CombinedReducers = combineReducers({
-  currentEvent: eventsReducers,
-  currentUser: userReducers
+  currentEvents: eventsReducers,
+  currentUser: userReducers,
+  closestEvent: closestEventReducer,
+  selectEvent: selectEventReducer,
 });
 
 const store = createStore(

@@ -1,5 +1,6 @@
 // Libraries
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // Components
 import EventFoodList from "components/events/EventFoodList";
@@ -14,21 +15,22 @@ import { useDispatchThunk } from "helpers/useDispatchThunk";
 
 const EventPage = props => {
 
-	const getEventInfo = useDispatchThunk(actions.getEvent);
+	const closestEvents = useSelector(state => state.closestEvents);
+	const selectEvent = useSelector(state => state.selectEvent);
+
 
 	useEffect(() => {
-		if (props.length > 1) {
-			getEventInfo(props.match.params.id);
-		} else {
-			actions.updateEvent(props.eventInfo);
-		}
-	}, [getEventInfo, props]);
+		// if props exist then getEventInfo(props.match.params.id) then update selectEvent
+		//otherwise update info with the same state
+
+	}, []);
 
 	return (
 		<div>
+			<PotluckInfo />
 			<EventFoodList />
 			<EventGuestList />
-			<PotluckInfo />
+		
 		</div>
 	);
 };

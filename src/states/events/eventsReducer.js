@@ -1,6 +1,6 @@
 // Types
 import * as types from "states/events/eventsTypes";
-const intialEventState = {events:[], currentEvent:{}}
+const intialEventState = []
 export const eventsReducers = (events = intialEventState, action) => {
   switch (action.type) {
     case types.GET_EVENT_INFO:
@@ -11,3 +11,19 @@ export const eventsReducers = (events = intialEventState, action) => {
       return events;
   }
 };
+
+const intialclosestEvent = {}
+export const closestEventReducer = (event = intialclosestEvent, action) => {
+  switch(action.type){
+    default:
+      return event;
+  }
+}
+
+const intialcurrentEvent = {}
+export const selectEventReducer = (event =  intialcurrentEvent, action) => {
+  switch(action.type){
+    default:
+      return event;
+  }
+}
