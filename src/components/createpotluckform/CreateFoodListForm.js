@@ -1,79 +1,69 @@
-import React from 'react';
-import { Form, Field, FieldArray, withFormik } from 'formik';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Form, Field, withFormik } from "formik";
+import { connect } from "react-redux";
 
-const CreateFoodList = ({ values }) => {
+// actions
+import * as actions from "states/users/usersActions";
+
+
+const CreateFoodList = ({ values, status, ...props }) => {
+	const [foodList, setFoodList] = useState([]);
+	useEffect(() => {
+		if (status) {
+			setFoodList([...foodList, status]);
+		}
+	}, [status, foodList]);
 	return (
-    <Form>
-      <FieldArray
-        name="food"
-        render={arrayHelpers => (
-          <div className='form-inner'>
-            {values.food && values.food.length > 0 ? (
-              values.food.map((food_item, index) => (
-                <div key={index}>
-                  <Field 
-                    className='control invite-input'
-                    name={`food.${index}`}
-                    placeholder='Food item'
-                  />
-                  <div className='plus-minus-buttons'>
-                    <div onClick={() => arrayHelpers.insert(index, "")}>
-                      <i class="far fa-plus-square" ></i></div>
-                    <div onClick={() => arrayHelpers.remove(index)}>
-                      <i class="far fa-minus-square" ></i>
-                    </div>
-                    </div>
-                </div>
-              ))
-            ) : (
-              <button type="button" className='button add' onClick={() => arrayHelpers.push("")}>
-                Add a food item
-              </button>
-            )}
-            <div>
-              <button type="submit" className="button next">Add food</button>     
-            </div>
-          </div>
-        )}
-      />
-    </Form>
-  );
+		<div>
+			<Form>
+				<Field
+					className='control invite-input'
+					name='food'
+					placeholder='Food item'
+				/>
+				<button type='submit' className='plus-minus-buttons'>
+						<i class='far fa-plus-square'></i>
+				</button>
+			</Form>
+			<button
+				onClick={() => {
+					props.history.push("/dashboard");
+				}}>
+				Done!
+			</button>
+		</div>
+	);
 };
 
-// axios request for events_id
-
-
 const CreateFoodListForm = withFormik({
-  mapPropsToValues({ food }) {
-    return {
-      food: food || '',
-    }
-  },
+	mapPropsToValues({ food }) {
+		return {
+			food: food || ""
+		};
+	},
 
-  handleSubmit(values, { props }) {
-    const foodData = {...values } //! + events_id, which gets created when event is submitted. 
-    axios
-      .post("https://potluck-backend.herokuapp.com/api/foods", foodData) //! add events_id to post
-      .then(res => {
-        console.log('res', res)
-        props.history.push('/event') //! /event/${events_id} 
-      })
-      .catch(error => {
-        console.log('nope')
-        console.error(error);
-      });
-    props.history.push({
-      pathname: '/inviteguests',
-      state: { 
-        food_item: values.food, 
-        eventName: props.location.state.eventName,
-        date: props.location.state.date,
-        time: props.location.state.time,
-        address: props.location.state.address
-      }
-    })
-  }
+	handleSubmit(values, { resetForm, props, setStatus }) {
+		setStatus(values);
+		const eventID = props.createEvent.id;
+		const foodData = { ...values, events_id: eventID, completed: false };
+		props.submitFormFood(foodData);
+		resetForm();
+	}
 })(CreateFoodList);
 
-export default CreateFoodListForm;
+const mapStateToProps = state => {
+	return {
+		createEvent: state.createEvent
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		submitFormFood: values => dispatch(actions.submitFormFood(values))
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(CreateFoodListForm);
