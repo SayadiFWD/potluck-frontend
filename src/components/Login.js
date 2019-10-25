@@ -13,7 +13,7 @@ const Login = ({ errors, touched, values, status, ...props }) => {
 		<Form className='sl-form'>
 			<div className='field is-large'>
 				<Field
-					className='control is-large'
+					className='control input is-large'
 					type='text'
 					name='username'
 					placeholder='Username'
@@ -24,7 +24,7 @@ const Login = ({ errors, touched, values, status, ...props }) => {
 			</div>
 			<div className='field'>
 				<Field
-					className='control'
+					className='control input'
 					type='password'
 					name='password'
 					placeholder='Password'
