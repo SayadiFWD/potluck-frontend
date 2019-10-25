@@ -82,7 +82,7 @@ export const closestFoodAdd = newFood => dispatch => {
 	axiosWithAuth()
 		.post(`/api/foods`, newFood)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_FOOD_ADD, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -92,7 +92,7 @@ export const closestFoodEdit = (food, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/foods/${eventID}`, food)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_FOOD_EDIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -102,7 +102,7 @@ export const closestFoodDelete = (food, eventID) => dispatch => {
 	axiosWithAuth()
 		.delete(`/api/foods/${eventID}`, food)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_FOOD_DELETE, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -112,7 +112,7 @@ export const closestGuestAdd = (newGuest, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, newGuest)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_GUEST_ADD, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -122,7 +122,7 @@ export const closestGuestDelete = (guest, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, guest)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_GUEST_DELETE, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -132,7 +132,7 @@ export const closestInfoEdit = (info, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, info)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_INFO_EDIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -142,7 +142,7 @@ export const closestFoodGuestPick = (pickedFood, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/food/${eventID}`, pickedFood)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.CLOSEST_FOOD_SUBMIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -152,13 +152,19 @@ export const closestGuestConfirm = () => dispatch => {
 	console.log(`confirmed!`);
 };
 
-//SELECT REDUCER'
+//SELECT REDUCER
+export const updateSelectEvent = event => dispatch => {
+	return {
+		type: types.UPDATE_SELECT_EVENT,
+		payload: event
+	};
+};
 
 export const selectFoodAdd = newFood => dispatch => {
 	axiosWithAuth()
 		.post(`/api/foods`, newFood)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_FOOD_ADD, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -168,7 +174,7 @@ export const selectFoodEdit = (food, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/foods/${eventID}`, food)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_FOOD_EDIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -178,7 +184,7 @@ export const selectFoodDelete = (food, eventID) => dispatch => {
 	axiosWithAuth()
 		.delete(`/api/foods/${eventID}`, food)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_FOOD_DELETE, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -188,7 +194,7 @@ export const selectGuestAdd = (newGuest, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, newGuest)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_GUEST_ADD, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -198,7 +204,7 @@ export const selectGuestDelete = (guest, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, guest)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_GUEST_DELETE, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -208,7 +214,7 @@ export const selectInfoEdit = (info, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/events/${eventID}`, info)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_INFO_EDIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
@@ -218,7 +224,7 @@ export const selectFoodGuestPick = (pickedFood, eventID) => dispatch => {
 	axiosWithAuth()
 		.put(`/api/food/${eventID}`, pickedFood)
 		.then(res => {
-			dispatch(success(res.data));
+			dispatch({ type: types.SELECT_FOOD_SUBMIT, payload: res.data });
 		})
 		.catch(err => {
 			console.log(err);
