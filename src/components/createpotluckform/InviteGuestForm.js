@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
 import axios from 'axios';
 
 const InviteGuest = ({ values }) => {
+  const[clicked, setClicked] = useState(false)
+  const[invisible, setInvisible] = useState("")
+
+  const eventLink = () => {
+    setClicked(true)
+    setInvisible("invisible")
+  }
+
 	return (
     <div>
       <h1 className='title is-3'>Add the emails of people you would like to invite.</h1>
@@ -34,6 +42,13 @@ const InviteGuest = ({ values }) => {
                   Add a guest's email
                 </button>
               )}
+              {values.guests.length > 1 ? <button className={`button ${invisible}`}  onClick={eventLink}>Generate event link to email</button> : null}
+              {clicked ? (
+                <div className='event-link'>
+                  <span>Copy this link and email it to your guests:</span>
+                  <span className='email-link'>EVENT ID</span>
+                </div>
+              ) : null } {/* NEED TO GET LINK TO EVENT ID WHICH WE GET FROM SUBMITTING AN EVENT */}
               <div>
                 <button type="submit" className="button next">Submit</button>     
               </div>
@@ -53,20 +68,25 @@ const InviteGuestForm = withFormik({
   },
 
   handleSubmit(values, { props }) {
-    const users_id = props.history.location.state.id
-    const eventData = {...props.history.location.state, guests: values.guests, users_id: users_id}
-    console.log('users_id', users_id)
-    console.log('eventData', eventData)
-    axios
-      .post("https://potluck-backend.herokuapp.com/api/events", eventData) //! 400 error
-      .then(res => {
-        console.log('res', res)
-        props.history.push('/foodform')
-      })
-      .catch(error => {
-        console.log('nope')
-        console.error(error);
-      });
+    // const users_id = props.history.location.state.id
+    // const eventData = {...props.history.location.state, guests: values.guests, users_id: users_id}
+    // console.log('users_id', users_id)
+    // console.log('eventData', eventData)
+    // axios
+    //   .post("https://potluck-backend.herokuapp.com/api/events", eventData) //! 400 error
+    //   .then(res => {
+    //     console.log('res', res)
+    //     props.history.push({
+    //       pathname: '/foodform',
+    //       state: {
+    //         guests: values.guests // passes guests array to last part of form to generate link
+    //       }
+    //     })
+    //   })
+    //   .catch(error => {
+    //     console.log('nope')
+    //     console.error(error);
+    //   });
   }
 })(InviteGuest);
 
