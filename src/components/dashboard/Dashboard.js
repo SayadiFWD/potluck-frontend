@@ -22,9 +22,9 @@ const Dashboard = props => {
 
 	useEffect(() => {
 		getUserInfo(localStorage.getItem("id"));
-		currentUser.events
+		currentUser.data.events
 			? updateClosestEvent(
-					currentUser.events.sort((a, b) => {
+					currentUser.data.events.sort((a, b) => {
 						return a.dates - b.dates || a.time - b.time;
 					})
 			  )

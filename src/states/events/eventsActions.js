@@ -154,3 +154,49 @@ export const updateSelectEvent = event => dispatch => {
 	};
 };
 
+
+export const updateFormEvent = event => {
+	return {
+		type: types.UPDATE_FORM_EVENT,
+		payload: event
+	};
+};
+
+export const submitEvent = event => {
+	return {
+		type: types.SUBMIT_FORM_EVENT,
+		payload: event
+	}
+} 
+
+
+export const submitFormEvent = (event, id) => dispatch => {
+	axiosWithAuth()
+		.put(APIURL + `/api/events/${id}`, event)
+		.then(res => {
+			axiosWithAuth()
+				.get(APIURL + `/api/events/${id}`)
+				.then(res => {
+					dispatch(
+						submitEvent(
+							res.data.find(data => data.event_name === event.event_name)
+						)
+					);
+				});
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};
+
+export const submitFormFood = foodWithID => dispatch => {
+	axiosWithAuth()
+		.post(APIURL + `/api/foods`, foodWithID)
+		.then(res => {
+			dispatch(success(res.data));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+};

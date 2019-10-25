@@ -1,6 +1,10 @@
 // Libraries
 import React from 'react';
 import { withFormik, Field, Form } from 'formik';
+import { connect } from "react-redux";
+
+// actions
+import * as actions from "states/events/eventsActions";
 
 
 const CreatePotluck = () => {
@@ -56,20 +60,25 @@ const CreatePotluckForm = withFormik({
     }
   },
 
-  handleSubmit(values, { setStatus, props }) {
-    setStatus(values)
-    props.history.push({
-      pathname: '/inviteguests',
-      state: { 
-        event_name: values.event_name,
-        dates: values.dates,
-        time: values.time,
-        address: values.address,
-        id: 35
-        //id: from login -> dashboard 
-      }
-    })
+  handleSubmit(values, { props }) {
+    props.updateFormEvent(values)
+    props.history.push('/inviteguests')
   }
 })(CreatePotluck);
 
-export default CreatePotluckForm;
+const mapStateToProps = state => {
+	return {
+		createEvent: state.createEvent
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+    updateFormEvent: values => dispatch(actions.updateFormEvent(values))
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(CreatePotluckForm);

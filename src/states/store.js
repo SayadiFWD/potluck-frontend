@@ -6,7 +6,8 @@ import thunk from "redux-thunk";
 import {
 	eventsReducers,
 	closestEventReducer,
-	selectEventReducer
+	selectEventReducer,
+	createEventReducer
 } from "states/events/eventsReducer";
 import { userReducers } from "states/users/usersReducer";
 import { ownerReducer } from "states/owner/ownerReducer";
@@ -16,7 +17,8 @@ const CombinedReducers = combineReducers({
 	currentUser: userReducers,
 	closestEvent: closestEventReducer,
   selectEvent: selectEventReducer,
-  isOwner: ownerReducer,
+	isOwner: ownerReducer,
+	createEvent: createEventReducer
 });
 
 const store = createStore(

@@ -9,8 +9,8 @@ const PotluckList = () => {
 	return (
 		<div>
 			<h1>Events</h1>
-			{currentUser.events === []
-				? currentUser.events.map(event => (
+			{currentUser.data.events === []
+				? currentUser.data.events.map(event => (
 						<NavLink key={event.id} to={`/events/${event.id}`}>
 							{event.event_name} {event.dates}
 						</NavLink>

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
+import { connect } from "react-redux";
+
+// actions
+import * as actions from "states/events/eventsActions";
 
 
-const InviteGuest = ({ values }) => {
+const InviteGuest = ({ values, ...props}) => {
   const[clicked, setClicked] = useState(false)
   const[invisible, setInvisible] = useState("")
 
@@ -46,9 +50,9 @@ const InviteGuest = ({ values }) => {
               {clicked ? (
                 <div className='event-link'>
                   <span>Copy this link and email it to your guests:</span>
-                  <span className='email-link'>EVENT ID</span>
+                  <span className='email-link'>{Object.keys(props.createEvent).length > 6 ? `https://potluck-frontend.feast.now.sh/events/${props.createEvent.id}`: ''}</span>
                 </div>
-              ) : null } {/* NEED TO GET LINK TO EVENT ID WHICH WE GET FROM SUBMITTING AN EVENT */}
+              ) : null } 
               <div>
                 <button type="submit" className="button next">Submit</button>     
               </div>
@@ -68,26 +72,28 @@ const InviteGuestForm = withFormik({
   },
 
   handleSubmit(values, { props }) {
-    // const users_id = props.history.location.state.id
-    // const eventData = {...props.history.location.state, guests: values.guests, users_id: users_id}
-    // console.log('users_id', users_id)
-    // console.log('eventData', eventData)
-    // axios
-    //   .post("https://potluck-backend.herokuapp.com/api/events", eventData) //! 400 error
-    //   .then(res => {
-    //     console.log('res', res)
-    //     props.history.push({
-    //       pathname: '/foodform',
-    //       state: {
-    //         guests: values.guests // passes guests array to last part of form to generate link
-    //       }
-    //     })
-    //   })
-    //   .catch(error => {
-    //     console.log('nope')
-    //     console.error(error);
-    //   });
+    props.updateFormEvent(values)
+    props.submitFormEvent(values, localStorage.getItem('id'))
+    props.history.push('/foodform')
   }
 })(InviteGuest);
 
-export default InviteGuestForm;
+const mapStateToProps = state => {
+	return {
+		createEvent: state.createEvent
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+    updateFormEvent: values => dispatch(actions.updateFormEvent(values)),
+    submitFormEvent: (values, id) =>dispatch(actions.submitFormEvent(values, id))
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(InviteGuestForm);
+
+

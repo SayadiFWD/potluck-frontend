@@ -11,7 +11,7 @@ const PotluckCard = props => {
 	return (
 		<div>
 			<h1>Card</h1>
-			{currentUser.events === [] ? 'Add Event' : <EventPage/>}
+			{currentUser.data.events === [] ? <EventPage/> : 'Add Event'}
 		</div>
 	);
 };

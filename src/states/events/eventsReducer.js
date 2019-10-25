@@ -1,5 +1,6 @@
 // Types
 import * as types from "states/events/eventsTypes";
+
 const intialEventsState = [];
 export const eventsReducers = (events = intialEventsState, action) => {
 	switch (action.type) {
@@ -33,6 +34,10 @@ export const selectEventReducer = (event = intialcurrentEvent, action) => {
 const initialEventForm = {};
 export const createEventReducer = (event = initialEventForm, action) => {
 	switch (action.type) {
+		case types.UPDATE_FORM_EVENT:
+			return {...event, ...action.payload};
+			case types.SUBMIT_FORM_EVENT:
+				return action.payload;
 		default:
 			return event;
 	}
