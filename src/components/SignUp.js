@@ -14,7 +14,7 @@ const SignUp = ({ errors, touched, ...props }) => {
 		<Form className='sl-form'>
 			<div className='field'>
 				<Field
-					className='control'
+					className='control input'
 					type='text'
 					name='username'
 					placeholder='Username'
@@ -25,7 +25,7 @@ const SignUp = ({ errors, touched, ...props }) => {
 			</div>
 			<div className='field'>
 				<Field
-					className='control'
+					className='control input'
 					type='email'
 					name='email'
 					placeholder='Email'
@@ -36,7 +36,7 @@ const SignUp = ({ errors, touched, ...props }) => {
 			</div>
 			<div className='field'>
 				<Field
-					className='control'
+					className='control input'
 					type='password'
 					name='password'
 					placeholder='Password'
