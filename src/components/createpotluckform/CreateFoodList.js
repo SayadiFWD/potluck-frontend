@@ -2,9 +2,6 @@ import React from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { TextField } from 'formik-material-ui';
-import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
-import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
 
 const CreateFoodList = ({ values }) => {
 	return (
@@ -12,25 +9,31 @@ const CreateFoodList = ({ values }) => {
       <FieldArray
         name="food"
         render={arrayHelpers => (
-          <div>
+          <div className='form-inner'>
             {values.food && values.food.length > 0 ? (
               values.food.map((food_item, index) => (
                 <div key={index}>
                   <Field 
+                    className='control invite-input'
                     name={`food.${index}`}
-                    component={TextField}
+                    placeholder='Food item'
                   />
-                  <RemoveCircleOutline onClick={() => arrayHelpers.remove(index)}/>
-                  <AddCircleOutline onClick={() => arrayHelpers.insert(index, "")}/>
+                  <div className='plus-minus-buttons'>
+                    <div onClick={() => arrayHelpers.insert(index, "")}>
+                      <i class="far fa-plus-square" ></i></div>
+                    <div onClick={() => arrayHelpers.remove(index)}>
+                      <i class="far fa-minus-square" ></i>
+                    </div>
+                    </div>
                 </div>
               ))
             ) : (
-              <button type="button" onClick={() => arrayHelpers.push("")}>
+              <button type="button" className='button add' onClick={() => arrayHelpers.push("")}>
                 Add a food item
               </button>
             )}
             <div>
-              <button type="submit" className="button is-link">Submit</button>     
+              <button type="submit" className="button next">Add food</button>     
             </div>
           </div>
         )}

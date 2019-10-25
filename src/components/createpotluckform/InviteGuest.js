@@ -12,7 +12,7 @@ const InviteGuest = ({ values }) => {
           className='inviteform'
           name="guests"
           render={arrayHelpers => (
-            <div className='invite-form-inner' >
+            <div className='form-inner' >
               {values.guests && values.guests.length > 0 ? (
                 values.guests.map((guest, index) => (
                   <div key={index}>
