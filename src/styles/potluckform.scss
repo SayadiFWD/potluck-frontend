@@ -1,3 +1,42 @@
+//CreatePotluck 
+
+.potluckform {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  margin: 0 auto;
+
+  .control {
+    width: 900px;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
+}
+
+.title.is-3 {
+  text-align: center;
+}
+
+
+
+.button.next {
+  background-color: #AD1046;
+  display: block;
+  margin-top: 45px;
+  width: 150px;
+  font-size: 1.2rem; 
+  color: white;
+  align-self: flex-end;
+}
+  .button.next:hover {
+    background-color: white;
+    color: #AD1046;
+    border: 1px solid #AD1046; }
+
 
 .invisible {
   background: none;
@@ -8,3 +47,5 @@
 .fa-plus-circle {
   font-size: 1.3rem;
 }
+
+
