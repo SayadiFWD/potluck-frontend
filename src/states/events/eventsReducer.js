@@ -30,12 +30,10 @@ export const selectEventReducer = (event = intialcurrentEvent, action) => {
 	}
 };
 
-// const initialuseEvent = {};
-// export const inUseCurrentEventReducer = (event = initialuseEvent, action) => {
-// 	switch (action.type) {
-// 		case types.UPDATE_INUSE_EVENT:
-// 			return action.payload;
-// 		default:
-// 			return event;
-// 	}
-// };
+const initialEventForm = {};
+export const createEventReducer = (event = initialEventForm, action) => {
+	switch (action.type) {
+		default:
+			return event;
+	}
+};

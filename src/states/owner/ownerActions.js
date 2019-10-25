@@ -21,5 +21,3 @@ export const compareIDs = id => dispatch => {
   : dispatch(iDMismatch())
 }
 
-// owner needs an action to take local storage ID
-// compare it to Event userID

@@ -69,6 +69,7 @@ const SignUpForm = withFormik({
 	}),
 
 	handleSubmit(values, { props }) {
+		console.log(props)
 		props.register(values, props.history);
 	}
 })(SignUp);
@@ -81,7 +82,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		register: (values) => dispatch(actions.register(values))
+		register: (values, history) => dispatch(actions.register(values, history))
 	};
 };
 
