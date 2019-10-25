@@ -11,11 +11,10 @@ import { useDispatchThunk } from "helpers/useDispatchThunk";
 const EventGuestList = () => {
 	const owner = useSelector(state => state.isOwner);
 	const selectEvent = useSelector(state => state.closestEvent);
-	const [confirmGuest, deleteGuest, addGuest] = useDispatchThunk([
-		actions.eventGuestConfirm,
-		actions.eventGuestDelete,
-		actions.eventGuestAdd
-	]);
+
+	const confirmGuest = useDispatchThunk(actions.eventGuestConfirm)
+	const deleteGuest = useDispatchThunk(actions.eventGuestDelete)
+	const addGuest = useDispatchThunk(actions.eventGuestAdd)
 
 	const [guestValue, setGuestValue] = useState();
 

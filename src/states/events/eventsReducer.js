@@ -3,7 +3,7 @@ import * as types from "states/events/eventsTypes";
 const intialEventsState = [];
 export const eventsReducers = (events = intialEventsState, action) => {
 	switch (action.type) {
-		case types.GET_EVENTS_INFO:
+		case types.GET_CURRENT_EVENTS_INFO:
 			return action.payload;
 		default:
 			return events;

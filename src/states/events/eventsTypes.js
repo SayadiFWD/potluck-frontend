@@ -4,7 +4,7 @@ export const PENDING = 'PENDING';
 
 export const ERROR = 'ERROR';
 
-export const GET_CURRENT_EVENTS_INFO = 'GET_EVENTS_INFO';
+export const GET_CURRENT_EVENTS_INFO = 'GET_CURRENT_EVENTS_INFO';
 
 
 

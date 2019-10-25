@@ -100,7 +100,7 @@ export const register = (values, history) => dispatch => {
 		.then(({ data }) => {
 			console.log('success')
 			dispatch(updateUser(data));
-			history.push('/login');
+			history.push('/landing/login');
 		})
 		.catch(error => {
 			console.log('nope')

@@ -17,23 +17,22 @@ import PotluckList from "components/dashboard/PotluckList";
 const Dashboard = props => {
 	const currentUser = useSelector(state => state.currentUser);
 
-	const [getUserInfo, updateClosestEvent] = useDispatchThunk([
-		usersActions.getUserWithEvents,
-		eventActions.updateClosestEvent
-	]);
+	const getUserInfo = useDispatchThunk(usersActions.getUserWithEvents);
+	const updateClosestEvent = useDispatchThunk(eventActions.updateClosestEvent);
 
 	useEffect(() => {
 		getUserInfo(localStorage.getItem("id"));
-		updateClosestEvent(
-			currentUser.events.sort((a, b) => {
-				return a.dates - b.dates || a.time - b.time;
-			})
-		);
+		currentUser.events
+			? updateClosestEvent(
+					currentUser.events.sort((a, b) => {
+						return a.dates - b.dates || a.time - b.time;
+					})
+			  )
+			: getUserInfo(localStorage.getItem("id"));
 	}, [currentUser, getUserInfo, updateClosestEvent]);
 
 	return (
 		<div>
-			<p>{JSON.stringify(currentUser)}</p>
 			<NavLink to='/potluckform'>
 				<button>Create Event</button>
 			</NavLink>

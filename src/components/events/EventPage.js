@@ -18,11 +18,9 @@ const EventPage = props => {
 	const closestEvent = useSelector(state => state.closestEvent);
 	const owner = useSelector(state => state.isOwner);
 
-	const [getEventInfo, setSelectEvent, matchID] = useDispatchThunk([
-		actions.getEvents,
-		actions.updateSelectEvent,
-		compareIDs
-	]);
+	const getEventInfo = useDispatchThunk(actions.getEvents);
+	const setSelectEvent = useDispatchThunk(actions.updateSelectEvent);
+	const matchID = useDispatchThunk(compareIDs);
 
 	useEffect(() => {
 		matchID();
@@ -33,9 +31,9 @@ const EventPage = props => {
 
 	return (
 		<div>
-			<PotluckInfo props={props}/>
-			<EventFoodList props={props}/>
-			<EventGuestList props={props}/>
+			<PotluckInfo props={props} />
+			<EventFoodList props={props} />
+			<EventGuestList props={props} />
 			{owner && <button>Remove Event</button>}
 		</div>
 	);

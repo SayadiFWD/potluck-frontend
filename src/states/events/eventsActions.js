@@ -14,17 +14,17 @@ export const success = () => {
 
 export const eventInfo = data => {
 	return {
-		type: types.GET_EVENTS_INFO,
+		type: types.GET_CURRENT_EVENTS_INFO,
 		payload: data
 	};
 };
 
-export const updateEvent = props => {
-	return {
-		type: types.UPDATE_CURRENT_EVENT,
-		payload: props
-	};
-};
+// export const updateEvent = props => {
+// 	return {
+// 		type: types.UPDATE_CURRENT_EVENT,
+// 		payload: props
+// 	};
+// };
 
 export const createEvent = id => dispatch => {
 	axiosWithAuth()
