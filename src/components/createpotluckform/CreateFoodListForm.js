@@ -3,7 +3,7 @@ import { Form, Field, withFormik } from "formik";
 import { connect } from "react-redux";
 
 // actions
-import * as actions from "states/users/usersActions";
+import * as actions from "states/events/eventsActions";
 
 
 const CreateFoodList = ({ values, status, ...props }) => {
