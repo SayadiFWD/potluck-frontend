@@ -1,10 +1,87 @@
+//CreatePotluck 
 
-.invisible {
-  background: none;
-  padding: 0px;
-  border: none;
+.potluckform {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  margin: 0 auto;
+
+  .control {
+    width: 900px;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
 }
 
-.fa-plus-circle {
-  font-size: 1.3rem;
+.title.is-3 {
+  margin-top: 100px;
+  text-align: center;
+  color: $main-color;
 }
+
+
+.button.add:hover {
+  border-color: $yellow;
+}
+
+.button.next {
+  background-color: #AD1046;
+  display: block;
+  margin-top: 45px;
+  width: 150px;
+  font-size: 1.2rem; 
+  color: white;
+  align-self: flex-end;
+}
+
+.button.next:hover {
+  background-color: white;
+  color: #AD1046;
+  border: 1px solid #AD1046; 
+}
+
+//InviteGuests
+
+.form-inner {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 900px;
+  margin: 0 auto;
+}
+
+input.control {
+  border-color: $main-color;
+  width: 870px;
+}
+
+.fa-plus-square, 
+.fa-minus-square {  
+  font-size: 1.8rem;
+  margin: 5px 5px 0 5px;
+  color: $light-grey;
+  cursor: pointer;
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.plus-minus-buttons {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.button.add {
+  align-self: center;
+}
+
+
+
+
