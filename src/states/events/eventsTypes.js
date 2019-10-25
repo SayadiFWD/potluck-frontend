@@ -3,3 +3,24 @@ export const SUCCESS = 'SUCCESS';
 export const PENDING = 'PENDING';
 
 export const ERROR = 'ERROR';
+
+export const GET_CURRENT_EVENTS_INFO = 'GET_CURRENT_EVENTS_INFO';
+
+
+
+export const UPDATE_CLOSEST_EVENT = 'UPDATE_CLOSEST_EVENT';
+
+export const UPDATE_SELECT_EVENT = 'GET_SELECT_EVENT';
+
+//private
+export const EVENT_FOOD_ADD = 'EVENT_FOOD_ADD'; 
+export const EVENT_FOOD_EDIT = 'EVENT_FOOD_EDIT';
+export const EVENT_FOOD_DELETE = 'EVENT_FOOD_DELETE';
+export const EVENT_GUEST_ADD = 'EVENT_GUEST_ADD'; 
+export const EVENT_GUEST_DELETE = 'EVENT_GUEST_DELETE';
+export const EVENT_INFO_EDIT = 'EVENT_INFO_EDIT';
+//public
+export const EVENT_FOOD_SUBMIT = 'EVENT_FOOD_SUBMIT';
+export const EVENT_GUEST_CONFIRM = 'EVENT_GUEST_CONFIRM'; 
+
+ 

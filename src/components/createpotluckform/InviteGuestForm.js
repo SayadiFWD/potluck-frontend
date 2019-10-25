@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+
 
 const InviteGuest = ({ values }) => {
   const[clicked, setClicked] = useState(false)

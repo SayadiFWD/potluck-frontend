@@ -38,9 +38,8 @@ const updateUser = user => ({
 
 export const createUsers = id => dispatch => {
 	axiosWithAuth()
-		.put(`/api/users/${id}`)
+		.post(`/api/users/${id}`)
 		.then(res => {
-			console.log('user id', res)
 			dispatch(success(res.data));
 		})
 		.catch(err => {
@@ -85,21 +84,23 @@ export const login = (values, history) => dispatch => {
 		.post('https://potluck-backend.herokuapp.com/api/auth/login', values)
 		.then(({ data }) => {
 			localStorage.setItem("token", data.token)
+			localStorage.setItem("id", data.id)
 			dispatch(loginSuccess(data));
 			dispatch(displayUserInfo(data));
-			history.push("/dashboard");
+			history.push("/");
 		})
 		.catch(error => {
 			console.error(error);
 		});
 };
 
-export const register = user => dispatch => {
+export const register = (values, history) => dispatch => {
 	axiosWithAuth()
-		.post("https://potluck-backend.herokuapp.com/api/auth/register", user)
+		.post("https://potluck-backend.herokuapp.com/api/auth/register", values)
 		.then(({ data }) => {
 			console.log('success')
 			dispatch(updateUser(data));
+			history.push('/landing/login');
 		})
 		.catch(error => {
 			console.log('nope')

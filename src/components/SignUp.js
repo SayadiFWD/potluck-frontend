@@ -1,6 +1,5 @@
 // Libraries
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { Form, withFormik, Field } from "formik";
 import { connect } from "react-redux";
 // import axios from 'axios';
@@ -70,8 +69,8 @@ const SignUpForm = withFormik({
 	}),
 
 	handleSubmit(values, { props }) {
-		props.register(values);
-		console.log(values)
+		console.log(props)
+		props.register(values, props.history);
 	}
 })(SignUp);
 
@@ -83,7 +82,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		register: (values) => dispatch(actions.register(values))
+		register: (values, history) => dispatch(actions.register(values, history))
 	};
 };
 
