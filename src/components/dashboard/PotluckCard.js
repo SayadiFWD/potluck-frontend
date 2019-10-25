@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 import EventPage from "components/events/EventPage";
 
 const PotluckCard = props => {
+	const currentUser = useSelector(state => state.currentUser);
 
 	return (
 		<div>
 			<h1>Card</h1>
-			{/* {currentEvents === {} ? 'Add Event' : <EventPage/>} */}
+			{currentUser.events === [] ? 'Add Event' : <EventPage/>}
 		</div>
 	);
 };

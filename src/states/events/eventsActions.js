@@ -80,7 +80,7 @@ export const updateClosestEvent = event => {
 
 export const closestFoodAdd = newFood => dispatch => {
 	axiosWithAuth()
-		.post(`/api/foods`, newFood)
+		.post(APIURL +`/api/foods`, newFood)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_FOOD_ADD, payload: res.data });
 		})
@@ -90,7 +90,7 @@ export const closestFoodAdd = newFood => dispatch => {
 };
 export const closestFoodEdit = (food, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/foods/${eventID}`, food)
+		.put(APIURL +`/api/foods/${eventID}`, food)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_FOOD_EDIT, payload: res.data });
 		})
@@ -100,7 +100,7 @@ export const closestFoodEdit = (food, eventID) => dispatch => {
 };
 export const closestFoodDelete = (food, eventID) => dispatch => {
 	axiosWithAuth()
-		.delete(`/api/foods/${eventID}`, food)
+		.delete(APIURL +`/api/foods/${eventID}`, food)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_FOOD_DELETE, payload: res.data });
 		})
@@ -110,7 +110,7 @@ export const closestFoodDelete = (food, eventID) => dispatch => {
 };
 export const closestGuestAdd = (newGuest, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, newGuest)
+		.put(APIURL +`/api/events/${eventID}`, newGuest)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_GUEST_ADD, payload: res.data });
 		})
@@ -120,7 +120,7 @@ export const closestGuestAdd = (newGuest, eventID) => dispatch => {
 };
 export const closestGuestDelete = (guest, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, guest)
+		.put(APIURL +`/api/events/${eventID}`, guest)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_GUEST_DELETE, payload: res.data });
 		})
@@ -130,7 +130,7 @@ export const closestGuestDelete = (guest, eventID) => dispatch => {
 };
 export const closestInfoEdit = (info, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, info)
+		.put(APIURL +`/api/events/${eventID}`, info)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_INFO_EDIT, payload: res.data });
 		})
@@ -140,7 +140,7 @@ export const closestInfoEdit = (info, eventID) => dispatch => {
 };
 export const closestFoodGuestPick = (pickedFood, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/food/${eventID}`, pickedFood)
+		.put(APIURL +`/api/food/${eventID}`, pickedFood)
 		.then(res => {
 			dispatch({ type: types.CLOSEST_FOOD_SUBMIT, payload: res.data });
 		})
@@ -162,7 +162,7 @@ export const updateSelectEvent = event => dispatch => {
 
 export const selectFoodAdd = newFood => dispatch => {
 	axiosWithAuth()
-		.post(`/api/foods`, newFood)
+		.post(APIURL +`/api/foods`, newFood)
 		.then(res => {
 			dispatch({ type: types.SELECT_FOOD_ADD, payload: res.data });
 		})
@@ -172,7 +172,7 @@ export const selectFoodAdd = newFood => dispatch => {
 };
 export const selectFoodEdit = (food, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/foods/${eventID}`, food)
+		.put(APIURL +`/api/foods/${eventID}`, food)
 		.then(res => {
 			dispatch({ type: types.SELECT_FOOD_EDIT, payload: res.data });
 		})
@@ -182,7 +182,7 @@ export const selectFoodEdit = (food, eventID) => dispatch => {
 };
 export const selectFoodDelete = (food, eventID) => dispatch => {
 	axiosWithAuth()
-		.delete(`/api/foods/${eventID}`, food)
+		.delete(APIURL +`/api/foods/${eventID}`, food)
 		.then(res => {
 			dispatch({ type: types.SELECT_FOOD_DELETE, payload: res.data });
 		})
@@ -192,7 +192,7 @@ export const selectFoodDelete = (food, eventID) => dispatch => {
 };
 export const selectGuestAdd = (newGuest, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, newGuest)
+		.put(APIURL +`/api/events/${eventID}`, newGuest)
 		.then(res => {
 			dispatch({ type: types.SELECT_GUEST_ADD, payload: res.data });
 		})
@@ -202,7 +202,7 @@ export const selectGuestAdd = (newGuest, eventID) => dispatch => {
 };
 export const selectGuestDelete = (guest, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, guest)
+		.put(APIURL +`/api/events/${eventID}`, guest)
 		.then(res => {
 			dispatch({ type: types.SELECT_GUEST_DELETE, payload: res.data });
 		})
@@ -212,7 +212,7 @@ export const selectGuestDelete = (guest, eventID) => dispatch => {
 };
 export const selectInfoEdit = (info, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/events/${eventID}`, info)
+		.put(APIURL +`/api/events/${eventID}`, info)
 		.then(res => {
 			dispatch({ type: types.SELECT_INFO_EDIT, payload: res.data });
 		})
@@ -222,7 +222,7 @@ export const selectInfoEdit = (info, eventID) => dispatch => {
 };
 export const selectFoodGuestPick = (pickedFood, eventID) => dispatch => {
 	axiosWithAuth()
-		.put(`/api/food/${eventID}`, pickedFood)
+		.put(APIURL +`/api/food/${eventID}`, pickedFood)
 		.then(res => {
 			dispatch({ type: types.SELECT_FOOD_SUBMIT, payload: res.data });
 		})

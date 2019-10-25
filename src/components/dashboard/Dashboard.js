@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 // Actions
 import * as usersActions from "states/users/usersActions";
-import * as eventActions from 'states/events/eventsActions';
+import * as eventActions from "states/events/eventsActions";
 
 // helpers
 import { useDispatchThunk } from "helpers/useDispatchThunk";
@@ -16,21 +16,20 @@ import PotluckList from "components/dashboard/PotluckList";
 
 const Dashboard = props => {
 	const currentUser = useSelector(state => state.currentUser);
-	const currentEvents = useSelector(state => state.currentEvents);
-	const closestEvent = useSelector(state => state.closestEvent);
 
-	const getUserInfo = useDispatchThunk(usersActions.getUserWithEvents);
-	const updateEvent = useDispatchThunk( eventActions.updateEvent);
-
+	const [getUserInfo, updateClosestEvent] = useDispatchThunk([
+		usersActions.getUserWithEvents,
+		eventActions.updateClosestEvent
+	]);
 
 	useEffect(() => {
 		getUserInfo(localStorage.getItem("id"));
-		// needs to get currentEvents
-		// update currentEvents state
-		// sort through both time and date in currentEvents
-		// update closest even state with first item of arr
-	
-	}, []);
+		updateClosestEvent(
+			currentUser.events.sort((a, b) => {
+				return a.dates - b.dates || a.time - b.time;
+			})
+		);
+	}, [currentUser, getUserInfo, updateClosestEvent]);
 
 	return (
 		<div>

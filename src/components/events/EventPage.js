@@ -9,29 +9,34 @@ import PotluckInfo from "components/events/PotluckInfo";
 
 // Actions
 import * as actions from "states/events/eventsActions";
+import { compareIDs } from "states/owner/ownerActions";
 
 // helpers
 import { useDispatchThunk } from "helpers/useDispatchThunk";
 
 const EventPage = props => {
+	const closestEvent = useSelector(state => state.closestEvent);
+	const owner = useSelector(state => state.isOwner);
 
-	const closestEvents = useSelector(state => state.closestEvents);
-	const selectEvent = useSelector(state => state.selectEvent);
-
+	const [getEventInfo, setClosestEvent, matchID] = useDispatchThunk([
+		actions.getEvents,
+		actions.updateClosestEvent,
+		compareIDs
+	]);
 
 	useEffect(() => {
-		// if props exist then getEventInfo(props.match.params.id) then update selectEvent
-		//otherwise update info with the same state
-		// need a delete event
-
-	}, []);
+		matchID();
+		props.history
+			? getEventInfo(props.match.params.id)
+			: setClosestEvent(closestEvent);
+	}, [getEventInfo, setClosestEvent, props, closestEvent, matchID]);
 
 	return (
 		<div>
-			<PotluckInfo />
-			<EventFoodList />
-			<EventGuestList />
-		
+			<PotluckInfo props={props}/>
+			<EventFoodList props={props}/>
+			<EventGuestList props={props}/>
+			{owner && <button>Remove Event</button>}
 		</div>
 	);
 };

@@ -1,24 +1,42 @@
 // Libraries
-import React from 'react';
-// import { useSelector } from "react-redux";
+import React, {useState} from "react";
+import { useSelector } from "react-redux";
 
-// Components 
-import GuestCard from 'components/events/GuestCard';
+// Components
+import GuestCard from "components/events/GuestCard";
 
-const EventGuestList = () => {
+const EventGuestList = props => {
+	const closestEvent = useSelector(state => state.closestEvent);
+	const owner = useSelector(state => state.isOwner);
+	const selectEvent = useSelector(state => state.closestEvent);
 
-	// if a person id matches the event ID then dont show submit button
-	// if it doesnt then show submit button
-	// eventfoodList needs to be a form
-	// add edit delete onclick a box appears for a person with auth
+	const event = props ? selectEvent : closestEvent;
+
+	const [value, setValue] = useState();
+
+	const valueChange = event => {
+		setValue(event.target.value);
+	};
+
 	return (
-  <div>
-			{/* {currentEvent.guest? currentEvent.guest.map((guest, index) => (
-				<GuestCard key={index} guest={guest} />
-			)) : 'Add Guest'} */}
-  </div>
-  );
+		<div>
+			<form>
+				{!owner && <h1>Select Your Name</h1>}
+				{event.guest
+					? event.guest
+							.split(",")
+							.map((guest, index) => <GuestCard props={props} key={index} guest={guest} />)
+					: "Add Guest"}
+				{owner && (
+					<div>
+						<input type='text' onChange={valueChange} value={value} />
+						<button>Add</button>
+					</div>
+				)}
+				{!owner && <button type='submit'>Submit</button>}
+			</form>
+		</div>
+	);
 };
-
 
 export default EventGuestList;
