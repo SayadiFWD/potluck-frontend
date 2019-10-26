@@ -35,7 +35,9 @@ const initialEventForm = {};
 export const createEventReducer = (event = initialEventForm, action) => {
 	switch (action.type) {
 		case types.UPDATE_FORM_EVENT:
+			
 			return {...event, ...action.payload};
+	
 			case types.SUBMIT_FORM_EVENT:
 				return action.payload;
 		default:

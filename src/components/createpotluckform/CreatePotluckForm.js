@@ -8,7 +8,9 @@ import * as actions from "states/events/eventsActions";
 
 
 const CreatePotluck = () => {
+
 	return (
+    
     <div className='container'>
       <h1 className='title is-3'>Let's get some basic information first.</h1>
       <Form className='potluckform'>
@@ -44,7 +46,7 @@ const CreatePotluck = () => {
             placeholder='Where?'
           />
         </div>
-        <button className="button next">Next</button>
+        <button type='submit' className="button next">Next</button>
       </Form>
     </div>
   );
@@ -61,8 +63,11 @@ const CreatePotluckForm = withFormik({
   },
 
   handleSubmit(values, { props }) {
+    
     props.updateFormEvent(values)
+    console.log(props.createEvent)
     props.history.push('/inviteguests')
+    
   }
 })(CreatePotluck);
 

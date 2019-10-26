@@ -22,7 +22,7 @@ const CreateFoodList = ({ values, status, ...props }) => {
 					placeholder='Food item'
 				/>
 				<button type='submit' className='plus-minus-buttons'>
-						<i class='far fa-plus-square'></i>
+						<i className='far fa-plus-square'></i>
 				</button>
 			</Form>
 			<button
