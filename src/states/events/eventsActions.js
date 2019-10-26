@@ -4,7 +4,7 @@ import * as types from "states/events/eventsTypes";
 // // Helpers
 import { axiosWithAuth } from "helpers/auth";
 
-const APIURL = "https://potluck-backend.herokuapp.com/";
+const APIURL = "https://potluck-backend.herokuapp.com";
 
 export const success = () => {
 	return {
@@ -172,16 +172,18 @@ export const submitEvent = event => {
 
 export const submitFormEvent = (event, id) => dispatch => {
 	axiosWithAuth()
-		.put(APIURL + `/api/events/${id}`, event)
+		.post(APIURL + `/api/events/${id}`, event)
 		.then(res => {
+			console.log('success')
 			axiosWithAuth()
-				.get(APIURL + `/api/events/${id}`)
+				.get(APIURL + `/api/events/`)
 				.then(res => {
-					dispatch(
-						submitEvent(
-							res.data.find(data => data.event_name === event.event_name)
-						)
-					);
+					console.log(res.data)
+					// dispatch(
+					// 	submitEvent(
+					// 		res.data.find(data => data.event_name === event.event_name)
+					// 	)
+					// );
 				});
 			dispatch(success(res.data));
 		})

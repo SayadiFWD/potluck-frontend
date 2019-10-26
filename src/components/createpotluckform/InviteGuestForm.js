@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Field, FieldArray, withFormik } from 'formik';
 import { connect } from "react-redux";
 
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actions from "states/events/eventsActions";
 
 
-const InviteGuest = ({ values, ...props}) => {
+const InviteGuest = ({ values, createEvent, ...props}) => {
   const[clicked, setClicked] = useState(false)
   const[invisible, setInvisible] = useState("")
 
@@ -14,7 +14,8 @@ const InviteGuest = ({ values, ...props}) => {
     setClicked(true)
     setInvisible("invisible")
   }
-
+  useEffect(()=>{props.history.push({state: createEvent})},[])
+  
 	return (
     <div>
       <h1 className='title is-3'>Add the emails of people you would like to invite.</h1>
@@ -34,9 +35,9 @@ const InviteGuest = ({ values, ...props}) => {
                     />
                     <div className='plus-minus-buttons'>
                       <div onClick={() => arrayHelpers.insert(index, "")}>
-                        <i class="far fa-plus-square" ></i></div>
+                        <i className="far fa-plus-square" ></i></div>
                       <div onClick={() => arrayHelpers.remove(index)}>
-                        <i class="far fa-minus-square" ></i>
+                        <i className="far fa-minus-square" ></i>
                       </div>
                     </div>
                   </div>
@@ -73,7 +74,7 @@ const InviteGuestForm = withFormik({
 
   handleSubmit(values, { props }) {
     props.updateFormEvent(values)
-    props.submitFormEvent(values, localStorage.getItem('id'))
+    props.submitFormEvent({...values, ...props.location.state}, localStorage.getItem('id'))
     props.history.push('/foodform')
   }
 })(InviteGuest);

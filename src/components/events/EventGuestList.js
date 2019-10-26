@@ -15,6 +15,7 @@ const EventGuestList = () => {
 	const confirmGuest = useDispatchThunk(actions.eventGuestConfirm)
 	const deleteGuest = useDispatchThunk(actions.eventGuestDelete)
 	const addGuest = useDispatchThunk(actions.eventGuestAdd)
+	
 
 	const [guestValue, setGuestValue] = useState();
 
